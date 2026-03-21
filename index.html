@@ -209,8 +209,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </head>
 <body>
 
+<!-- BOOTSTRAP: First-time password setup -->
+<div id="sc-bootstrap" class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="brand-mark">H</div>
+      <div class="brand-name">Hopestone Hospital</div>
+      <div class="brand-sub">First-time account setup</div>
+    </div>
+    <div class="auth-title">Set your admin password</div>
+    <div class="auth-sub">Sets the password for <strong>hopestonehealthcare@gmail.com</strong> — no email needed.</div>
+    <div class="err-box" id="bs-err"></div>
+    <div class="f"><label>New password</label><input type="password" id="bs-pw" placeholder="Minimum 8 characters"></div>
+    <div class="f"><label>Confirm password</label><input type="password" id="bs-pw2" placeholder="Repeat password"></div>
+    <button class="btn btn-primary btn-block" id="bs-btn" onclick="doBootstrap()">Set password &amp; sign in</button>
+    <div class="auth-switch">Already have a password? <a onclick="show('sc-login')">Sign in</a></div>
+  </div>
+</div>
+
 <!-- LOGIN -->
-<div id="sc-login" class="auth-wrap">
+<div id="sc-login" class="auth-wrap hidden">
   <div class="auth-card">
     <div class="auth-brand">
       <div class="brand-mark">H</div>
@@ -231,6 +249,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <div class="demo-row"><span>accounts@hopestone.ng</span><span class="tag tag-accountant">Accountant</span><button class="btn btn-xs" onclick="fill('accounts@hopestone.ng')">Use</button></div>
       <div class="demo-row"><span>md@hopestone.ng</span><span class="tag tag-md">MD</span><button class="btn btn-xs" onclick="fill('md@hopestone.ng')">Use</button></div>
       <div class="demo-row"><span>hopestonehealthcare@gmail.com</span><span class="tag tag-admin">Admin</span><button class="btn btn-xs" onclick="fill('hopestonehealthcare@gmail.com',true)">Use</button></div>
+      <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--text-muted)">First time? <a onclick="show('sc-bootstrap')" style="color:var(--blue);cursor:pointer;font-weight:600">Set your admin password here</a></div>
       <div class="demo-hint">Demo password: <strong>Hopestone2024!</strong> &nbsp;|&nbsp; Real admin uses your own password</div>
     </div>
   </div>
@@ -447,6 +466,35 @@ async function patch(tbl, id, b)  { await fetch(`${SB}/rest/v1/${tbl}?id=eq.${id
 async function del(tbl, id)       { await fetch(`${SB}/rest/v1/${tbl}?id=eq.${id}`, {method:'DELETE', headers:h()}); }
 
 // ── AUTH ──────────────────────────────────────────────────────────────────
+async function doBootstrap() {
+  const pw  = document.getElementById('bs-pw').value;
+  const pw2 = document.getElementById('bs-pw2').value;
+  const err = document.getElementById('bs-err');
+  const btn = document.getElementById('bs-btn');
+  err.style.display='none';
+  if (pw.length < 8) { err.textContent='Password must be at least 8 characters.'; err.style.display='block'; return; }
+  if (pw !== pw2)    { err.textContent='Passwords do not match.'; err.style.display='block'; return; }
+  btn.disabled=true; btn.textContent='Setting password…';
+  try {
+    const r = await fetch('https://ghpzxwbqupphsqlovjhm.supabase.co/functions/v1/admin-set-password', {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'x-admin-secret':'hopestone-bootstrap-2024', 'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocHp4d2JxdXBwaHNxbG92amhtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NjM0MDksImV4cCI6MjA4OTQzOTQwOX0.7dk41mwoEzHtRMD777iTFJP7ip_0nAJpznXVmtji4dY' },
+      body: JSON.stringify({ user_id: '7b00ccdf-e19b-4f21-9d24-6dc77bf52228', new_password: pw, admin_key: 'hopestone-bootstrap-2024' })
+    });
+    const d = await r.json();
+    if (d.error) { err.textContent=d.error; err.style.display='block'; btn.disabled=false; btn.textContent='Set password & sign in'; return; }
+    // Auto-fill login and proceed
+    document.getElementById('l-em').value = 'hopestonehealthcare@gmail.com';
+    document.getElementById('l-pw').value = pw;
+    show('sc-login');
+    toast('Password set! Signing you in…');
+    setTimeout(doLogin, 600);
+  } catch(e) {
+    err.textContent='Network error — please try again.'; err.style.display='block';
+    btn.disabled=false; btn.textContent='Set password & sign in';
+  }
+}
+
 async function doLogin() {
   const email = document.getElementById('l-em').value.trim();
   const pw    = document.getElementById('l-pw').value;
@@ -741,6 +789,9 @@ async function renderAdmin() {
             </select>
             <button class="btn btn-xs ${u.is_active?'btn-danger':'btn-success'}" onclick="toggleActive('${u.id}',${u.is_active})">
               ${u.is_active?'Deactivate':'Activate'}
+            </button>
+            <button class="btn btn-xs btn-warn" onclick="showSetPasswordModal('${u.id}','${(u.full_name||'User').replace(/'/g,"\\'")}')">
+              Set password
             </button>` : ''}
           </div>
         </div>`;
@@ -796,6 +847,49 @@ async function cancelInvite(id) {
   await del('staff_invitations', id);
   toast('Invitation cancelled ✓');
   goPage('admin');
+}
+
+function showSetPasswordModal(uid, name) {
+  document.getElementById('modal-area').innerHTML=`
+    <div class="modal-bg" onclick="closeMod(event)">
+      <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal-title">Set password — ${name}</div>
+        <div class="modal-sub">Enter a new password for this user. They can use it to sign in immediately — no email required.</div>
+        <div class="f"><label>New password</label>
+          <input type="password" id="sp-pw" placeholder="Minimum 8 characters" autocomplete="new-password"></div>
+        <div class="f"><label>Confirm password</label>
+          <input type="password" id="sp-pw2" placeholder="Repeat password"></div>
+        <div class="err-box" id="sp-err" style="display:none"></div>
+        <div class="modal-footer">
+          <button class="btn btn-sm" onclick="closeMod()">Cancel</button>
+          <button class="btn btn-sm btn-primary" onclick="setPassword('${uid}')">Set password</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+async function setPassword(uid) {
+  const pw  = document.getElementById('sp-pw').value;
+  const pw2 = document.getElementById('sp-pw2').value;
+  const err = document.getElementById('sp-err');
+  err.style.display='none';
+  if (pw.length < 8) { err.textContent='Password must be at least 8 characters.'; err.style.display='block'; return; }
+  if (pw !== pw2)    { err.textContent='Passwords do not match.'; err.style.display='block'; return; }
+
+  const token = demoMode ? KEY : (sess?.access_token || KEY);
+  try {
+    const r = await fetch(`${SB}/functions/v1/admin-set-password`, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json', 'Authorization':'Bearer '+token, 'apikey':KEY },
+      body: JSON.stringify({ user_id: uid, new_password: pw })
+    });
+    const d = await r.json();
+    if (d.error) { err.textContent = d.error; err.style.display='block'; return; }
+    closeMod();
+    toast('Password updated successfully ✓');
+  } catch(e) {
+    err.textContent = 'Network error — please try again.'; err.style.display='block';
+  }
 }
 
 function showInviteModal() {
