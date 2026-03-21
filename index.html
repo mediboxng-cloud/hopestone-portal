@@ -11,21 +11,18 @@
   --green:#1D9E75; --green-light:#E1F5EE; --green-dark:#0A5C45;
   --red:#E24B4A; --red-light:#FFF0F0; --red-dark:#6B2020;
   --purple:#534AB7; --purple-light:#EEEDFE; --purple-dark:#2E2880;
-  --teal:#0F6E56; --teal-light:#E1F5EE;
   --gray:#F5F5F5; --gray-mid:#CCCCCC; --gray-dark:#666;
   --text:#1A1A2E; --text-muted:#666; --text-faint:#999;
   --bg:#F4F6FA; --surface:#FFFFFF; --border:#E2E8F0;
   --radius:8px; --radius-lg:12px; --radius-xl:16px;
-  --shadow:0 1px 4px rgba(0,0,0,0.07);
-  --shadow-md:0 4px 16px rgba(0,0,0,0.10);
+  --shadow:0 1px 4px rgba(0,0,0,0.07); --shadow-md:0 4px 16px rgba(0,0,0,0.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
-
-/* AUTH */
+.hidden{display:none!important}
 .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
 .auth-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px;width:100%;max-width:400px;box-shadow:var(--shadow-md)}
-.auth-brand{text-align:center;margin-bottom:24px}
+.brand{text-align:center;margin-bottom:24px}
 .brand-mark{width:50px;height:50px;background:var(--blue);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;color:#fff;font-size:22px;font-weight:700}
 .brand-name{font-size:18px;font-weight:700}
 .brand-sub{font-size:12px;color:var(--text-muted);margin-top:2px}
@@ -57,16 +54,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .demo-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px}
 .demo-row:last-of-type{border-bottom:none}
 .demo-hint{font-size:10px;color:var(--text-faint);margin-top:7px}
-
-/* ROLE TAGS */
 .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;text-transform:uppercase;letter-spacing:.3px}
 .tag-staff{background:#F0F0F0;color:#555;border:1px solid #ccc}
 .tag-manager{background:var(--orange-light);color:var(--orange-dark);border:1px solid var(--orange)}
 .tag-accountant{background:var(--blue-light);color:var(--blue-dark);border:1px solid var(--blue)}
 .tag-md{background:var(--purple-light);color:var(--purple-dark);border:1px solid var(--purple)}
 .tag-admin{background:#FFF0E5;color:#8C3300;border:1px solid #F4A225}
-
-/* APP SHELL */
 .app{display:flex;flex-direction:column;height:100vh;overflow:hidden}
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;flex-shrink:0;box-shadow:var(--shadow)}
 .tb-brand{display:flex;align-items:center;gap:10px}
@@ -83,38 +76,30 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .av-t{background:var(--green-light);color:var(--green-dark)}
 .av-p{background:var(--purple-light);color:var(--purple-dark)}
 .av-r{background:#FFF0E5;color:#8C3300}
-.user-info .uname{font-size:13px;font-weight:600}
-.user-info .urole{font-size:11px;color:var(--text-muted)}
+.uname{font-size:13px;font-weight:600}
+.urole{font-size:11px;color:var(--text-muted)}
 .app-body{display:flex;flex:1;overflow:hidden}
-.sidebar{width:204px;min-width:204px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:14px 0;overflow-y:auto}
+.sidebar{width:204px;min-width:204px;background:var(--surface);border-right:1px solid var(--border);padding:14px 0;overflow-y:auto}
 .nav-sec{font-size:10px;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:.6px;padding:10px 16px 4px}
 .nav-item{display:flex;align-items:center;gap:9px;padding:8px 16px;font-size:13px;color:var(--text-muted);cursor:pointer;transition:all .12s;border-left:3px solid transparent}
 .nav-item:hover{background:var(--bg);color:var(--text)}
 .nav-item.active{background:var(--blue-light);color:var(--blue);border-left-color:var(--blue);font-weight:600}
 .nav-badge{background:var(--red);color:#fff;font-size:10px;padding:1px 6px;border-radius:99px;margin-left:auto;font-weight:700}
 .main{flex:1;overflow-y:auto;padding:24px}
-
-/* PAGES */
 .page{display:none}
 .page.active{display:block}
 .ph{margin-bottom:20px}
-.ph .pt{font-size:19px;font-weight:700;margin-bottom:3px}
-.ph .ps{font-size:13px;color:var(--text-muted)}
-
-/* METRICS */
+.pt{font-size:19px;font-weight:700;margin-bottom:3px}
+.ps{font-size:13px;color:var(--text-muted)}
 .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:20px}
 .metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px;box-shadow:var(--shadow)}
-.metric .ml{font-size:11px;color:var(--text-muted);margin-bottom:5px}
-.metric .mv{font-size:22px;font-weight:700}
+.ml{font-size:11px;color:var(--text-muted);margin-bottom:5px}
+.mv{font-size:22px;font-weight:700}
 .mv.blue{color:var(--blue)}.mv.green{color:var(--green)}.mv.red{color:var(--red)}.mv.amber{color:var(--orange-dark)}
-
-/* CARDS */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;margin-bottom:16px;box-shadow:var(--shadow)}
 .ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
 .ct{font-size:14px;font-weight:700}
 .ca{display:flex;gap:8px}
-
-/* REQUEST ITEMS */
 .ri{display:flex;align-items:flex-start;gap:11px;padding:12px 0;border-bottom:1px solid var(--border)}
 .ri:last-child{border-bottom:none;padding-bottom:0}
 .rav{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
@@ -125,8 +110,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .rr{text-align:right;flex-shrink:0}
 .ra-amt{font-size:14px;font-weight:700;color:var(--blue)}
 .ract{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap}
-
-/* PILLS */
 .pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px}
 .p-mgr{background:var(--orange-light);color:var(--orange-dark);border:1px solid var(--orange)}
 .p-acc{background:var(--blue-light);color:var(--blue-dark);border:1px solid var(--blue)}
@@ -137,19 +120,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .p-eme{background:var(--red-light);color:var(--red-dark);border:1px solid var(--red)}
 .p-wkl{background:var(--orange-light);color:var(--orange-dark);border:1px solid var(--orange)}
 .p-rtn{background:var(--gray);color:var(--gray-dark);border:1px solid var(--gray-mid)}
-
-/* TIMER */
 .timer{font-size:11px;margin-top:3px;font-weight:600}
 .timer.ok{color:var(--green)}.timer.warn{color:var(--orange-dark)}.timer.over{color:var(--red)}
-
-/* ALERTS */
 .alert{padding:10px 14px;border-radius:var(--radius);font-size:13px;margin-bottom:14px;border-left:3px solid}
 .al-warn{background:var(--orange-light);border-color:var(--orange);color:var(--orange-dark)}
 .al-info{background:var(--blue-light);border-color:var(--blue);color:var(--blue-dark)}
 .al-ok{background:var(--green-light);border-color:var(--green);color:var(--green-dark)}
-.al-danger{background:var(--red-light);border-color:var(--red);color:var(--red-dark)}
-
-/* STEP FLOW */
 .step-flow{display:flex;align-items:center;overflow-x:auto;padding:2px 0}
 .sn{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:58px}
 .sc{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;border:2px solid}
@@ -158,12 +134,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .s-wait{background:var(--gray);border-color:var(--gray-mid);color:var(--text-faint)}
 .sl{font-size:9px;color:var(--text-muted);text-align:center;line-height:1.2;font-weight:500}
 .sa{width:12px;height:2px;background:var(--gray-mid);flex-shrink:0;margin-top:-16px}
-
-/* COMPLIANCE BARS */
 .cbar{background:var(--gray);border-radius:99px;height:8px;margin-top:5px;overflow:hidden}
-.cfill{height:100%;border-radius:99px;transition:width .5s}
-
-/* MODAL */
+.cfill{height:100%;border-radius:99px}
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:500;padding:20px}
 .modal{background:var(--surface);border-radius:var(--radius-xl);padding:22px;width:100%;max-width:460px;box-shadow:var(--shadow-md);max-height:88vh;overflow-y:auto}
 .modal-title{font-size:15px;font-weight:700;margin-bottom:3px}
@@ -172,85 +144,62 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .audit-row{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px}
 .audit-row:last-child{border-bottom:none}
 .audit-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:4px}
-
-/* ADMIN PANEL */
-.admin-user-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
-.admin-user-row:last-child{border-bottom:none}
+.admin-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.admin-row:last-child{border-bottom:none}
 .admin-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.admin-info{flex:1;min-width:0}
+.admin-info{flex:1;min-width:120px}
 .admin-name{font-size:13px;font-weight:600}
 .admin-email{font-size:11px;color:var(--text-muted);margin-top:1px}
 .admin-meta{font-size:11px;color:var(--text-faint);margin-top:2px}
-.admin-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.dot-active{background:var(--green)}
-.dot-inactive{background:var(--gray-mid)}
-.dot-pending{background:var(--orange)}
-.role-select{padding:5px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);cursor:pointer;font-family:inherit}
-.role-select:focus{outline:none;border-color:var(--blue)}
-
-/* STATS STRIP */
+.admin-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.role-sel{padding:5px 8px;font-size:12px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);cursor:pointer;font-family:inherit}
+.role-sel:focus{outline:none;border-color:var(--blue)}
 .stats-strip{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
 .stat-chip{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 16px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow)}
-.stat-chip-icon{font-size:18px}
-.stat-chip-val{font-size:18px;font-weight:700}
-.stat-chip-lbl{font-size:11px;color:var(--text-muted)}
-
-/* MISC */
+.stat-val{font-size:18px;font-weight:700}
+.stat-lbl{font-size:11px;color:var(--text-muted)}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .empty{color:var(--text-faint);font-size:13px;padding:16px;text-align:center}
 .loading{color:var(--text-faint);font-size:13px;padding:16px;text-align:center}
-.divider{height:1px;background:var(--border);margin:14px 0}
-.hidden{display:none!important}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;padding:9px 18px;border-radius:var(--radius);font-size:13px;z-index:1000;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;box-shadow:var(--shadow-md)}
-
 @media(max-width:768px){.sidebar{display:none}.metrics{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- BOOTSTRAP: First-time password setup -->
+<!-- BOOTSTRAP -->
 <div id="sc-bootstrap" class="auth-wrap">
   <div class="auth-card">
-    <div class="auth-brand">
-      <div class="brand-mark">H</div>
-      <div class="brand-name">Hopestone Hospital</div>
-      <div class="brand-sub">First-time account setup</div>
-    </div>
+    <div class="brand"><div class="brand-mark">H</div><div class="brand-name">Hopestone Hospital</div><div class="brand-sub">First-time account setup</div></div>
     <div class="auth-title">Set your admin password</div>
     <div class="auth-sub">Sets the password for <strong>hopestonehealthcare@gmail.com</strong> — no email needed.</div>
     <div class="err-box" id="bs-err"></div>
-    <div class="f"><label>New password</label><input type="password" id="bs-pw" placeholder="Minimum 8 characters"></div>
+    <div class="f"><label>New password</label><input type="password" id="bs-pw" placeholder="Minimum 8 characters" autocomplete="new-password"></div>
     <div class="f"><label>Confirm password</label><input type="password" id="bs-pw2" placeholder="Repeat password"></div>
     <button class="btn btn-primary btn-block" id="bs-btn" onclick="doBootstrap()">Set password &amp; sign in</button>
-    <div class="auth-switch">Already have a password? <a onclick="show('sc-login')">Sign in</a></div>
+    <div class="auth-switch">Already have a password? <a onclick="showScreen('sc-login')">Sign in</a></div>
   </div>
 </div>
 
 <!-- LOGIN -->
 <div id="sc-login" class="auth-wrap hidden">
   <div class="auth-card">
-    <div class="auth-brand">
-      <div class="brand-mark">H</div>
-      <div class="brand-name">Hopestone Hospital</div>
-      <div class="brand-sub">Staff Requests Portal</div>
-    </div>
+    <div class="brand"><div class="brand-mark">H</div><div class="brand-name">Hopestone Hospital</div><div class="brand-sub">Staff Requests Portal</div></div>
     <div class="auth-title">Sign in</div>
     <div class="auth-sub">Use your staff email and password</div>
     <div class="err-box" id="le"></div>
     <div class="f"><label>Email</label><input type="email" id="l-em" placeholder="you@hopestonehospital.com" onkeydown="if(event.key==='Enter')doLogin()"></div>
     <div class="f"><label>Password</label><input type="password" id="l-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
     <button class="btn btn-primary btn-block" id="l-btn" onclick="doLogin()">Sign in</button>
-    <div class="auth-switch">No account? <a onclick="show('sc-signup')">Register</a></div>
+    <div class="auth-switch">No account? <a onclick="showScreen('sc-signup')">Register</a></div>
+    <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--text-muted)">First time? <a onclick="showScreen('sc-bootstrap')" style="color:var(--blue);cursor:pointer;font-weight:600">Set your admin password here</a></div>
     <div class="demo-box">
       <div class="demo-title">Demo accounts — click Use to fill</div>
-      <div class="demo-row"><span>staff@hopestone.ng</span><span class="tag tag-staff">Staff</span><button class="btn btn-xs" onclick="fill('staff@hopestone.ng')">Use</button></div>
-      <div class="demo-row"><span>manager@hopestone.ng</span><span class="tag tag-manager">Manager</span><button class="btn btn-xs" onclick="fill('manager@hopestone.ng')">Use</button></div>
-      <div class="demo-row"><span>accounts@hopestone.ng</span><span class="tag tag-accountant">Accountant</span><button class="btn btn-xs" onclick="fill('accounts@hopestone.ng')">Use</button></div>
-      <div class="demo-row"><span>md@hopestone.ng</span><span class="tag tag-md">MD</span><button class="btn btn-xs" onclick="fill('md@hopestone.ng')">Use</button></div>
-      <div class="demo-row"><span>hopestonehealthcare@gmail.com</span><span class="tag tag-admin">Admin</span><button class="btn btn-xs" onclick="fill('hopestonehealthcare@gmail.com',true)">Use</button></div>
-      <div style="text-align:center;margin-top:10px;font-size:12px;color:var(--text-muted)">First time? <a onclick="show('sc-bootstrap')" style="color:var(--blue);cursor:pointer;font-weight:600">Set your admin password here</a></div>
-      <div class="demo-hint">Demo password: <strong>Hopestone2024!</strong> &nbsp;|&nbsp; Real admin uses your own password</div>
+      <div class="demo-row"><span>staff@hopestone.ng</span><span class="tag tag-staff">Staff</span><button class="btn btn-xs" onclick="fillDemo('staff@hopestone.ng')">Use</button></div>
+      <div class="demo-row"><span>manager@hopestone.ng</span><span class="tag tag-manager">Manager</span><button class="btn btn-xs" onclick="fillDemo('manager@hopestone.ng')">Use</button></div>
+      <div class="demo-row"><span>accounts@hopestone.ng</span><span class="tag tag-accountant">Accountant</span><button class="btn btn-xs" onclick="fillDemo('accounts@hopestone.ng')">Use</button></div>
+      <div class="demo-row"><span>md@hopestone.ng</span><span class="tag tag-md">MD</span><button class="btn btn-xs" onclick="fillDemo('md@hopestone.ng')">Use</button></div>
+      <div class="demo-hint">Demo password: <strong>Hopestone2024!</strong></div>
     </div>
   </div>
 </div>
@@ -258,53 +207,44 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <!-- SIGNUP -->
 <div id="sc-signup" class="auth-wrap hidden">
   <div class="auth-card">
-    <div class="auth-brand"><div class="brand-mark">H</div><div class="brand-name">Hopestone Hospital</div><div class="brand-sub">Create your account</div></div>
+    <div class="brand"><div class="brand-mark">H</div><div class="brand-name">Hopestone Hospital</div><div class="brand-sub">Create your account</div></div>
     <div class="auth-title">Register</div>
     <div class="auth-sub">New accounts start as Staff. An admin will assign your role after registration.</div>
     <div class="err-box" id="se"></div>
     <div class="f"><label>Full name</label><input id="s-nm" placeholder="e.g. Amaka Obi"></div>
     <div class="f"><label>Email</label><input type="email" id="s-em" placeholder="you@hopestonehospital.com"></div>
-    <div class="f"><label>Department</label>
-      <select id="s-dp"><option>Nursing</option><option>Laboratory</option><option>Pharmacy</option><option>Administration</option><option>Maintenance</option><option>Finance</option></select></div>
+    <div class="f"><label>Department</label><select id="s-dp"><option>Nursing</option><option>Laboratory</option><option>Pharmacy</option><option>Administration</option><option>Maintenance</option><option>Finance</option></select></div>
     <div class="f"><label>Password</label><input type="password" id="s-pw" placeholder="Minimum 8 characters"></div>
     <button class="btn btn-primary btn-block" id="s-btn" onclick="doSignup()">Create account</button>
-    <div class="auth-switch">Already registered? <a onclick="show('sc-login')">Sign in</a></div>
+    <div class="auth-switch">Already registered? <a onclick="showScreen('sc-login')">Sign in</a></div>
   </div>
 </div>
 
-<!-- EMAIL CONFIRM -->
+<!-- CONFIRM -->
 <div id="sc-confirm" class="auth-wrap hidden">
   <div class="auth-card" style="text-align:center">
     <div style="font-size:48px;margin-bottom:12px">📬</div>
     <div class="auth-title">Check your email</div>
     <p id="confirm-msg" style="color:var(--text-muted);font-size:13px;margin:8px 0 20px">Click the confirmation link we sent you, then sign in.</p>
-    <button class="btn btn-primary btn-block" onclick="show('sc-login')">Back to sign in</button>
+    <button class="btn btn-primary btn-block" onclick="showScreen('sc-login')">Back to sign in</button>
   </div>
 </div>
 
-<!-- MAIN APP -->
+<!-- APP -->
 <div id="sc-app" class="app hidden">
   <div class="topbar">
-    <div class="tb-brand">
-      <div class="tb-mark">H</div>
-      <span class="tb-name">Hopestone Hospital</span>
-      <span class="tb-live"><span class="live-dot"></span>Live</span>
-    </div>
+    <div class="tb-brand"><div class="tb-mark">H</div><span class="tb-name">Hopestone Hospital</span><span class="tb-live"><span class="live-dot"></span>Live</span></div>
     <div class="tb-right">
-      <div class="user-chip">
-        <div class="uav av-b" id="top-av"></div>
-        <div class="user-info"><div class="uname" id="top-nm"></div><div class="urole" id="top-rl"></div></div>
-      </div>
+      <div class="user-chip"><div class="uav av-b" id="top-av"></div><div><div class="uname" id="top-nm"></div><div class="urole" id="top-rl"></div></div></div>
       <button class="btn btn-sm btn-danger" onclick="doLogout()">Sign out</button>
     </div>
   </div>
   <div class="app-body">
     <nav class="sidebar" id="sidebar"></nav>
-    <main class="main" id="main">
+    <main class="main">
 
-      <!-- STAFF -->
       <div id="page-staff" class="page">
-        <div class="ph"><div class="pt">Submit a request</div><div class="ps">Requests are batched monthly (ideal) or weekly at most. Emergency exceptions only.</div></div>
+        <div class="ph"><div class="pt">Submit a request</div><div class="ps">Requests batched monthly (ideal) or weekly at most. Emergency exceptions only.</div></div>
         <div id="staff-block"></div>
         <div class="card">
           <div class="ch"><span class="ct">New fund request</span></div>
@@ -313,19 +253,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
             <div class="f"><label>Amount (₦)</label><input type="number" id="f-amt" placeholder="0.00"></div>
           </div>
           <div class="f"><label>Purpose</label><input id="f-pur" placeholder="e.g. Monthly lab consumables restocking"></div>
-          <div class="f"><label>Priority</label>
-            <select id="f-pri"><option value="routine">Routine (monthly batch)</option><option value="weekly">Weekly batch</option><option value="emergency">Emergency</option></select></div>
-          <div class="f"><label>Utilisation notes — how was the last request used?</label>
-            <textarea id="f-nts" rows="3" placeholder="Describe how previous funds were utilised..."></textarea></div>
+          <div class="f"><label>Priority</label><select id="f-pri"><option value="routine">Routine (monthly batch)</option><option value="weekly">Weekly batch</option><option value="emergency">Emergency</option></select></div>
+          <div class="f"><label>Utilisation notes — how was the last request used?</label><textarea id="f-nts" rows="3" placeholder="Describe how previous funds were utilised..."></textarea></div>
           <button class="btn btn-primary" id="sub-btn" onclick="submitReq()">Submit to manager</button>
         </div>
         <div class="card">
           <div class="ch"><span class="ct">My request history</span><button class="btn btn-sm" onclick="goPage('staff')">Refresh</button></div>
-          <div id="staff-list"><div class="loading">Loading…</div></div>
+          <div id="staff-list"><div class="loading">Loading...</div></div>
         </div>
       </div>
 
-      <!-- MANAGER -->
       <div id="page-manager" class="page">
         <div class="ph"><div class="pt">Manager dashboard</div><div class="ps">Review and verify all staff requests before forwarding to the accountant</div></div>
         <div class="metrics">
@@ -336,11 +273,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
         </div>
         <div class="card">
           <div class="ch"><span class="ct">Pending requests</span><button class="btn btn-sm" onclick="goPage('manager')">Refresh</button></div>
-          <div id="mgr-list"><div class="loading">Loading…</div></div>
+          <div id="mgr-list"><div class="loading">Loading...</div></div>
         </div>
       </div>
 
-      <!-- ACCOUNTANT -->
       <div id="page-accountant" class="page">
         <div class="ph"><div class="pt">Accountant portal</div><div class="ps">2nd-level verification, then payment processing and documentation</div></div>
         <div class="metrics">
@@ -351,15 +287,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
         </div>
         <div class="card">
           <div class="ch"><span class="ct">For verification</span><button class="btn btn-sm" onclick="goPage('accountant')">Refresh</button></div>
-          <div id="acc-v"><div class="loading">Loading…</div></div>
+          <div id="acc-v"><div class="loading">Loading...</div></div>
         </div>
-        <div class="card">
-          <div class="ch"><span class="ct">MD approved — awaiting payment</span></div>
-          <div id="acc-p"><div class="loading">Loading…</div></div>
-        </div>
+        <div class="card"><div class="ch"><span class="ct">MD approved — awaiting payment</span></div><div id="acc-p"><div class="loading">Loading...</div></div></div>
       </div>
 
-      <!-- MD -->
       <div id="page-md" class="page">
         <div class="ph"><div class="pt">MD approval inbox</div><div class="ps">Final approvals — 24-hour response window per request</div></div>
         <div class="metrics">
@@ -371,55 +303,32 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
         <div class="alert al-info">All requests below have passed manager and accountant verification and are ready for final sign-off.</div>
         <div class="card">
           <div class="ch"><span class="ct">Awaiting approval</span><button class="btn btn-sm" onclick="goPage('md')">Refresh</button></div>
-          <div id="md-list"><div class="loading">Loading…</div></div>
+          <div id="md-list"><div class="loading">Loading...</div></div>
         </div>
       </div>
 
-      <!-- TRACKER -->
       <div id="page-tracker" class="page">
         <div class="ph"><div class="pt">Request tracker</div><div class="ps">Full pipeline and live audit trail for all requests</div></div>
         <div class="card">
           <div class="ch"><span class="ct">All requests</span><button class="btn btn-sm" onclick="goPage('tracker')">Refresh</button></div>
-          <div id="trk-list"><div class="loading">Loading…</div></div>
+          <div id="trk-list"><div class="loading">Loading...</div></div>
         </div>
       </div>
 
-      <!-- COMPLIANCE -->
       <div id="page-compliance" class="page">
         <div class="ph"><div class="pt">Compliance monitor</div><div class="ps">SOP deadline tracking — delays beyond 2/week or 4/month trigger a query (Rule 7)</div></div>
         <div id="comp-content"></div>
       </div>
 
-      <!-- ADMIN PANEL -->
       <div id="page-admin" class="page">
-        <div class="ph"><div class="pt">Admin — User management</div><div class="ps">Manage roles, departments, and account status for all staff</div></div>
-
-        <!-- Stats strip -->
+        <div class="ph"><div class="pt">Admin — User management</div><div class="ps">Manage roles, departments, passwords and account status for all staff</div></div>
         <div class="stats-strip" id="admin-stats"></div>
-
-        <!-- User table -->
         <div class="card">
-          <div class="ch">
-            <span class="ct">All staff accounts</span>
-            <div class="ca">
-              <button class="btn btn-sm" onclick="goPage('admin')">Refresh</button>
-              <button class="btn btn-sm btn-primary" onclick="showInviteModal()">+ Invite user</button>
-            </div>
-          </div>
-          <div id="admin-users"><div class="loading">Loading…</div></div>
+          <div class="ch"><span class="ct">All staff accounts</span><div class="ca"><button class="btn btn-sm" onclick="goPage('admin')">Refresh</button><button class="btn btn-sm btn-primary" onclick="showInviteModal()">+ Invite user</button></div></div>
+          <div id="admin-users"><div class="loading">Loading...</div></div>
         </div>
-
-        <!-- Pending invitations -->
-        <div class="card">
-          <div class="ch"><span class="ct">Pending invitations</span></div>
-          <div id="admin-invites"><div class="loading">Loading…</div></div>
-        </div>
-
-        <!-- Activity log -->
-        <div class="card">
-          <div class="ch"><span class="ct">Recent request activity</span></div>
-          <div id="admin-activity"><div class="loading">Loading…</div></div>
-        </div>
+        <div class="card"><div class="ch"><span class="ct">Pending invitations</span></div><div id="admin-invites"><div class="loading">Loading...</div></div></div>
+        <div class="card"><div class="ch"><span class="ct">Recent activity</span></div><div id="admin-activity"><div class="loading">Loading...</div></div></div>
       </div>
 
     </main>
@@ -430,564 +339,383 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <div id="modal-area"></div>
 
 <script>
-// ── CONFIG ────────────────────────────────────────────────────────────────
-const SB  = 'https://ghpzxwbqupphsqlovjhm.supabase.co';
-const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocHp4d2JxdXBwaHNxbG92amhtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NjM0MDksImV4cCI6MjA4OTQzOTQwOX0.7dk41mwoEzHtRMD777iTFJP7ip_0nAJpznXVmtji4dY';
-const DPW = 'Hopestone2024!';
-const DEPTS = ['Nursing','Laboratory','Pharmacy','Administration','Maintenance','Finance'];
-const ROLES = ['staff','manager','accountant','md','admin'];
-
-const DEMO = {
-  'staff@hopestone.ng':    {id:'d-staff', role:'staff',      name:'Amaka Obi',        dept:'Nursing'},
-  'manager@hopestone.ng':  {id:'d-mgr',   role:'manager',    name:'Dr. Eze',           dept:'All'},
-  'accounts@hopestone.ng': {id:'d-acc',   role:'accountant', name:'Accountant',        dept:'Finance'},
-  'md@hopestone.ng':       {id:'d-md',    role:'md',         name:'Managing Director', dept:'All'},
+var SB           = 'https://ghpzxwbqupphsqlovjhm.supabase.co';
+var KEY          = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocHp4d2JxdXBwaHNxbG92amhtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NjM0MDksImV4cCI6MjA4OTQzOTQwOX0.7dk41mwoEzHtRMD777iTFJP7ip_0nAJpznXVmtji4dY';
+var ADMIN_UID    = '7b00ccdf-e19b-4f21-9d24-6dc77bf52228';
+var BOOT_KEY     = 'hopestone-bootstrap-2024';
+var DPW          = 'Hopestone2024!';
+var DEPTS        = ['Nursing','Laboratory','Pharmacy','Administration','Maintenance','Finance'];
+var ROLES        = ['staff','manager','accountant','md','admin'];
+var DEMO_USERS   = {
+  'staff@hopestone.ng':    {id:'d-s', role:'staff',      full_name:'Amaka Obi',        department:'Nursing'},
+  'manager@hopestone.ng':  {id:'d-m', role:'manager',    full_name:'Dr. Eze',           department:'All'},
+  'accounts@hopestone.ng': {id:'d-a', role:'accountant', full_name:'Accountant',        department:'Finance'},
+  'md@hopestone.ng':       {id:'d-d', role:'md',         full_name:'Managing Director', department:'All'}
+};
+var NAV_MAP = {
+  staff:      [{id:'staff',      lbl:'My requests',     ico:'📋'}],
+  manager:    [{id:'manager',    lbl:'Review queue',    ico:'👤'},{id:'tracker',lbl:'Tracker',ico:'🔍'},{id:'compliance',lbl:'Compliance',ico:'📊'}],
+  accountant: [{id:'accountant', lbl:'Verification',   ico:'🧾'},{id:'tracker',lbl:'Tracker',ico:'🔍'},{id:'compliance',lbl:'Compliance',ico:'📊'}],
+  md:         [{id:'md',         lbl:'Approval inbox',  ico:'✅'},{id:'tracker',lbl:'Full tracker',ico:'🔍'},{id:'compliance',lbl:'Compliance',ico:'📊'}],
+  admin:      [{id:'admin',      lbl:'User management', ico:'🛡️'},{id:'tracker',lbl:'All requests',ico:'🔍'},{id:'compliance',lbl:'Compliance',ico:'📊'}]
 };
 
-const NAV_MAP = {
-  staff:      [{id:'staff',      lbl:'My requests',    ico:'📋'}],
-  manager:    [{id:'manager',    lbl:'Review queue',   ico:'👤'},{id:'tracker',lbl:'Tracker',ico:'🔍'},{id:'compliance',lbl:'Compliance',ico:'📊'}],
-  accountant: [{id:'accountant', lbl:'Verification',  ico:'🧾'},{id:'tracker',lbl:'Tracker',ico:'🔍'},{id:'compliance',lbl:'Compliance',ico:'📊'}],
-  md:         [{id:'md',         lbl:'Approval inbox', ico:'✅'},{id:'tracker',lbl:'Full tracker',ico:'🔍'},{id:'compliance',lbl:'Compliance',ico:'📊'}],
-  admin:      [{id:'admin',      lbl:'User management',ico:'🛡️'},{id:'tracker',lbl:'All requests',ico:'🔍'},{id:'compliance',lbl:'Compliance',ico:'📊'}],
-};
+var sess = null, prof = null, reqs = [], curPage = null, demoMode = false;
 
-// ── STATE ─────────────────────────────────────────────────────────────────
-let sess=null, prof=null, reqs=[], curPage=null, demoMode=false;
+function tok() { return demoMode ? KEY : (sess && sess.access_token ? sess.access_token : KEY); }
+function hdrs() { return {'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+tok(),'Prefer':'return=representation'}; }
+function hdrsR() { return {'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+tok(),'Accept':'application/json'}; }
 
-// ── API ───────────────────────────────────────────────────────────────────
-const tok = () => demoMode ? KEY : (sess?.access_token || KEY);
-const h   = () => ({'Content-Type':'application/json', apikey:KEY, Authorization:'Bearer '+tok(), Prefer:'return=representation'});
-const hR  = () => ({...h(), Accept:'application/json'});
+async function sbGet(tbl, qs) {
+  var r = await fetch(SB+'/rest/v1/'+tbl+'?'+(qs||''), {headers:hdrsR()});
+  return r.json();
+}
+async function sbPost(tbl, body) {
+  var r = await fetch(SB+'/rest/v1/'+tbl, {method:'POST',headers:hdrs(),body:JSON.stringify(body)});
+  return r.json();
+}
+async function sbPatch(tbl, id, body) {
+  await fetch(SB+'/rest/v1/'+tbl+'?id=eq.'+id, {method:'PATCH',headers:hdrs(),body:JSON.stringify(body)});
+}
+async function sbDel(tbl, id) {
+  await fetch(SB+'/rest/v1/'+tbl+'?id=eq.'+id, {method:'DELETE',headers:hdrs()});
+}
 
-async function get(tbl, qs='')    { return (await fetch(`${SB}/rest/v1/${tbl}?${qs}`, {headers:hR()})).json(); }
-async function post(tbl, body)    { return (await fetch(`${SB}/rest/v1/${tbl}`, {method:'POST', headers:h(), body:JSON.stringify(body)})).json(); }
-async function patch(tbl, id, b)  { await fetch(`${SB}/rest/v1/${tbl}?id=eq.${id}`, {method:'PATCH', headers:h(), body:JSON.stringify(b)}); }
-async function del(tbl, id)       { await fetch(`${SB}/rest/v1/${tbl}?id=eq.${id}`, {method:'DELETE', headers:h()}); }
+// ── SCREEN ROUTING ────────────────────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll('.auth-wrap,.app').forEach(function(el){
+    el.classList.add('hidden'); el.style.display='';
+  });
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.classList.remove('hidden');
+  if (el.classList.contains('auth-wrap')) el.style.display = 'flex';
+}
 
 // ── AUTH ──────────────────────────────────────────────────────────────────
 async function doBootstrap() {
-  const pw  = document.getElementById('bs-pw').value;
-  const pw2 = document.getElementById('bs-pw2').value;
-  const err = document.getElementById('bs-err');
-  const btn = document.getElementById('bs-btn');
+  var pw=document.getElementById('bs-pw').value, pw2=document.getElementById('bs-pw2').value;
+  var err=document.getElementById('bs-err'), btn=document.getElementById('bs-btn');
   err.style.display='none';
-  if (pw.length < 8) { err.textContent='Password must be at least 8 characters.'; err.style.display='block'; return; }
-  if (pw !== pw2)    { err.textContent='Passwords do not match.'; err.style.display='block'; return; }
-  btn.disabled=true; btn.textContent='Setting password…';
+  if (pw.length<8){err.textContent='Password must be at least 8 characters.';err.style.display='block';return;}
+  if (pw!==pw2){err.textContent='Passwords do not match.';err.style.display='block';return;}
+  btn.disabled=true; btn.textContent='Setting password...';
   try {
-    const r = await fetch('https://ghpzxwbqupphsqlovjhm.supabase.co/functions/v1/admin-set-password', {
-      method: 'POST',
-      headers: { 'Content-Type':'application/json', 'x-admin-secret':'hopestone-bootstrap-2024', 'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdocHp4d2JxdXBwaHNxbG92amhtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM4NjM0MDksImV4cCI6MjA4OTQzOTQwOX0.7dk41mwoEzHtRMD777iTFJP7ip_0nAJpznXVmtji4dY' },
-      body: JSON.stringify({ user_id: '7b00ccdf-e19b-4f21-9d24-6dc77bf52228', new_password: pw, admin_key: 'hopestone-bootstrap-2024' })
+    var r=await fetch(SB+'/functions/v1/admin-set-password',{
+      method:'POST',headers:{'Content-Type':'application/json','apikey':KEY},
+      body:JSON.stringify({user_id:ADMIN_UID,new_password:pw,admin_key:BOOT_KEY})
     });
-    const d = await r.json();
-    if (d.error) { err.textContent=d.error; err.style.display='block'; btn.disabled=false; btn.textContent='Set password & sign in'; return; }
-    // Auto-fill login and proceed
-    document.getElementById('l-em').value = 'hopestonehealthcare@gmail.com';
-    document.getElementById('l-pw').value = pw;
-    show('sc-login');
-    toast('Password set! Signing you in…');
-    setTimeout(doLogin, 600);
+    var d=await r.json();
+    if (d.error){err.textContent=d.error;err.style.display='block';btn.disabled=false;btn.textContent='Set password & sign in';return;}
+    document.getElementById('l-em').value='hopestonehealthcare@gmail.com';
+    document.getElementById('l-pw').value=pw;
+    showScreen('sc-login');
+    toast('Password set! Signing you in...');
+    setTimeout(doLogin, 800);
   } catch(e) {
-    err.textContent='Network error — please try again.'; err.style.display='block';
-    btn.disabled=false; btn.textContent='Set password & sign in';
+    err.textContent='Network error — open this from a deployed URL, not a local file.';
+    err.style.display='block'; btn.disabled=false; btn.textContent='Set password & sign in';
   }
 }
 
 async function doLogin() {
-  const email = document.getElementById('l-em').value.trim();
-  const pw    = document.getElementById('l-pw').value;
-  const btn   = document.getElementById('l-btn');
-  setErr('le',''); btn.disabled=true; btn.textContent='Signing in…';
-
-  if (DEMO[email] && pw === DPW) {
-    demoMode=true; prof=DEMO[email]; sess={user:{id:prof.id,email}};
-    btn.disabled=false; btn.textContent='Sign in'; enterApp(); return;
+  var email=document.getElementById('l-em').value.trim(), pw=document.getElementById('l-pw').value;
+  var btn=document.getElementById('l-btn');
+  setErr('le',''); btn.disabled=true; btn.textContent='Signing in...';
+  if (DEMO_USERS[email] && pw===DPW) {
+    demoMode=true;
+    prof=Object.assign({},DEMO_USERS[email],{email:email});
+    sess={user:{id:prof.id,email:email}};
+    btn.disabled=false; btn.textContent='Sign in';
+    enterApp(); return;
   }
   try {
-    const r = await fetch(`${SB}/auth/v1/token?grant_type=password`, {
-      method:'POST', headers:{'Content-Type':'application/json',apikey:KEY},
-      body:JSON.stringify({email, password:pw})
+    var r=await fetch(SB+'/auth/v1/token?grant_type=password',{
+      method:'POST',headers:{'Content-Type':'application/json','apikey':KEY},
+      body:JSON.stringify({email:email,password:pw})
     });
-    const d = await r.json();
-    if (d.error||d.error_description) { setErr('le', d.error_description||d.error); btn.disabled=false; btn.textContent='Sign in'; return; }
+    var d=await r.json();
+    if (d.error||d.error_description){setErr('le',d.error_description||d.error);btn.disabled=false;btn.textContent='Sign in';return;}
     sess=d; demoMode=false;
     await loadProf(d.user.id, d.access_token);
-    btn.disabled=false; btn.textContent='Sign in'; enterApp();
-  } catch { setErr('le','Network error — check your connection.'); btn.disabled=false; btn.textContent='Sign in'; }
-}
-
-async function doSignup() {
-  const nm=document.getElementById('s-nm').value.trim(), em=document.getElementById('s-em').value.trim(),
-        dp=document.getElementById('s-dp').value, pw=document.getElementById('s-pw').value;
-  const btn=document.getElementById('s-btn');
-  setErr('se','');
-  if(!nm||!em||!pw){setErr('se','Please fill in all fields.');return;}
-  if(pw.length<8){setErr('se','Password must be at least 8 characters.');return;}
-  btn.disabled=true; btn.textContent='Creating…';
-  try {
-    const r=await fetch(`${SB}/auth/v1/signup`,{method:'POST',headers:{'Content-Type':'application/json',apikey:KEY},body:JSON.stringify({email:em,password:pw,data:{full_name:nm,department:dp,role:'staff'}})});
-    const d=await r.json();
-    if(d.error||d.error_description){setErr('se',d.error_description||d.error);btn.disabled=false;btn.textContent='Create account';return;}
-    document.getElementById('confirm-msg').textContent=`Confirmation link sent to ${em}. Click it to activate your account, then sign in.`;
-    show('sc-confirm');
-  } catch { setErr('se','Network error.'); }
-  btn.disabled=false; btn.textContent='Create account';
+    btn.disabled=false; btn.textContent='Sign in';
+    enterApp();
+  } catch(e){setErr('le','Network error — check your connection.');btn.disabled=false;btn.textContent='Sign in';}
 }
 
 async function loadProf(uid, token) {
-  const r = await fetch(`${SB}/rest/v1/staff_profiles?id=eq.${uid}&select=*`,{headers:{apikey:KEY,Authorization:'Bearer '+token,Accept:'application/json'}});
-  const d = await r.json();
-  prof = d?.[0] ? {...d[0], email:sess?.user?.email} : {id:uid, role:'staff', full_name:sess?.user?.email||'User', email:sess?.user?.email};
-}
-
-async function doLogout() {
-  if(!demoMode && sess?.access_token) await fetch(`${SB}/auth/v1/logout`,{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+sess.access_token}});
-  sess=null; prof=null; demoMode=false; show('sc-login');
-}
-
-// ── APP ENTER ─────────────────────────────────────────────────────────────
-function enterApp() {
-  show('sc-app');
-  const nm = prof?.full_name||prof?.name||'User';
-  document.getElementById('top-av').textContent = ini(nm);
-  document.getElementById('top-av').className   = 'uav ' + avc(nm);
-  document.getElementById('top-nm').textContent = nm;
-  document.getElementById('top-rl').textContent = cap(prof?.role||'staff');
-  // Dept dropdown
-  const dd = document.getElementById('f-dept');
-  if(dd) dd.innerHTML = DEPTS.map(d=>`<option${prof?.department===d?' selected':''}>${d}</option>`).join('');
-  const defaults={staff:'staff',manager:'manager',accountant:'accountant',md:'md',admin:'admin'};
-  goPage(defaults[prof?.role]||'staff');
-}
-
-// ── SIDEBAR ───────────────────────────────────────────────────────────────
-function buildSidebar() {
-  const role=prof?.role||'staff', items=NAV_MAP[role]||NAV_MAP.staff;
-  const bc={manager:reqs.filter(r=>r.status==='mgr_pending').length,accountant:reqs.filter(r=>r.status==='acc_pending').length,md:reqs.filter(r=>r.status==='md_pending').length};
-  document.getElementById('sidebar').innerHTML =
-    `<div class="nav-sec">Navigation</div>` +
-    items.map(it=>`<div class="nav-item${curPage===it.id?' active':''}" id="nav-${it.id}" onclick="goPage('${it.id}')">
-      <span style="font-size:15px">${it.ico}</span><span>${it.lbl}</span>
-      ${bc[it.id]>0?`<span class="nav-badge">${bc[it.id]}</span>`:''}
-    </div>`).join('');
-}
-
-// ── LOAD PAGE ─────────────────────────────────────────────────────────────
-async function goPage(id) {
-  curPage=id;
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const pg=document.getElementById('page-'+id); if(pg) pg.classList.add('active');
-  reqs = await get('fund_requests','order=submitted_at.desc');
-  buildSidebar();
-  if(id==='staff')      renderStaff();
-  else if(id==='manager')    renderManager();
-  else if(id==='accountant') renderAccountant();
-  else if(id==='md')         renderMD();
-  else if(id==='tracker')    renderTracker();
-  else if(id==='compliance') renderCompliance();
-  else if(id==='admin')      renderAdmin();
-}
-
-// ── HELPERS ───────────────────────────────────────────────────────────────
-const AVC=['av-b','av-a','av-t','av-p','av-r'];
-function avc(n){return AVC[(n||'?').charCodeAt(0)%5];}
-function ini(n){return(n||'?').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();}
-function fmt(n){return '₦'+Number(n).toLocaleString();}
-function cap(s){return s?s[0].toUpperCase()+s.slice(1):s;}
-function ago(ts){const h=Math.floor((Date.now()-new Date(ts))/3600000);return h<1?'<1h ago':h+'h ago';}
-function tLeft(ts,lh){
-  const h=(Date.now()-new Date(ts))/3600000, l=lh-h;
-  if(l<0) return{t:`⚠ ${Math.abs(Math.ceil(l))}h overdue`,c:'over'};
-  if(l<4) return{t:`⏱ ${Math.ceil(l)}h left`,c:'warn'};
-  return{t:`⏱ ${Math.ceil(l)}h left`,c:'ok'};
-}
-function sPill(s){
-  const m={mgr_pending:['Mgr review','p-mgr'],acc_pending:['Acct verify','p-acc'],md_pending:['MD review','p-md'],payment_pending:['Payment','p-pay'],documented:['Closed','p-done'],closed:['Closed','p-done'],reverted:['Reverted','p-rev']};
-  const[l,c]=m[s]||[s,'p-mgr']; return`<span class="pill ${c}">${l}</span>`;
-}
-function pPill(p){return`<span class="pill ${{emergency:'p-eme',weekly:'p-wkl',routine:'p-rtn'}[p]||'p-rtn'}">${p}</span>`;}
-function stepF(r){
-  const steps=[['Sub','mgr_pending'],['Mgr','acc_pending'],['Acct','md_pending'],['MD','payment_pending'],['Pay','documented'],['Done','closed']];
-  const ord=['mgr_pending','acc_pending','md_pending','payment_pending','documented','closed','reverted'];
-  const cur=ord.indexOf(r.status);
-  return steps.map(([l],i)=>{
-    const c=i<cur?'s-done':i===cur?'s-act':'s-wait';
-    return`<div class="sn"><div class="sc ${c}">${i<cur?'✓':i+1}</div><div class="sl">${l}</div></div>${i<steps.length-1?'<div class="sa"></div>':''}`;
-  }).join('');
-}
-function rCard(r, acts) {
-  const tl=tLeft(r.submitted_at,24);
-  return `<div class="ri">
-    <div class="rav ${avc(r.staff_name)}">${ini(r.staff_name)}</div>
-    <div class="rb">
-      <div class="rt">${r.staff_name} — ${r.purpose}</div>
-      <div class="rm">${r.department} · ${r.request_no} · ${pPill(r.priority)} · ${ago(r.submitted_at)}</div>
-      ${r.notes?`<div class="rn">${r.notes}</div>`:''}
-      <div class="timer ${tl.c}">${tl.t}</div>
-      <div class="ract">${acts}</div>
-    </div>
-    <div class="rr"><div class="ra-amt">${fmt(r.amount)}</div>${sPill(r.status)}</div>
-  </div>`;
-}
-
-// ── RENDER: STAFF ─────────────────────────────────────────────────────────
-function renderStaff() {
-  const open=reqs.filter(r=>['mgr_pending','acc_pending','md_pending','payment_pending'].includes(r.status));
-  document.getElementById('staff-block').innerHTML=open.length>0
-    ?`<div class="alert al-warn">You have <strong>${open.length}</strong> open request(s). New requests are blocked until previous funds are fully retired and documented.</div>`:'';
-  document.getElementById('staff-list').innerHTML=reqs.length===0
-    ?`<div class="empty">No requests yet.</div>`
-    :reqs.map(r=>`<div class="ri">
-        <div class="rav ${avc(r.staff_name)}">${ini(r.staff_name)}</div>
-        <div class="rb"><div class="rt">${r.purpose}</div><div class="rm">${r.department} · ${r.request_no} · ${ago(r.submitted_at)}</div></div>
-        <div class="rr"><div class="ra-amt">${fmt(r.amount)}</div>${sPill(r.status)}</div>
-      </div>`).join('');
-}
-
-// ── RENDER: MANAGER ───────────────────────────────────────────────────────
-function renderManager() {
-  const pend=reqs.filter(r=>r.status==='mgr_pending');
-  document.getElementById('m-p').textContent=pend.length;
-  document.getElementById('m-f').textContent=reqs.filter(r=>['acc_pending','md_pending','payment_pending','documented','closed'].includes(r.status)).length;
-  document.getElementById('m-o').textContent=pend.filter(r=>(Date.now()-new Date(r.submitted_at))>86400000).length;
-  document.getElementById('m-v').textContent='₦'+pend.reduce((a,r)=>a+Number(r.amount),0).toLocaleString();
-  document.getElementById('mgr-list').innerHTML=pend.length===0?`<div class="empty">No requests pending review.</div>`
-    :pend.map(r=>rCard(r,`<button class="btn btn-xs" onclick="showDetail('${r.id}')">Review</button>
-      <button class="btn btn-xs btn-success" onclick="adv('${r.id}','acc_pending','Manager approved','manager','mgr_actioned_at')">Approve &amp; forward</button>
-      <button class="btn btn-xs btn-danger" onclick="adv('${r.id}','reverted','Manager reverted','manager','mgr_actioned_at')">Revert</button>`)).join('');
-}
-
-// ── RENDER: ACCOUNTANT ────────────────────────────────────────────────────
-function renderAccountant() {
-  const v=reqs.filter(r=>r.status==='acc_pending'), p=reqs.filter(r=>r.status==='payment_pending'), c=reqs.filter(r=>['documented','closed'].includes(r.status));
-  document.getElementById('a-v').textContent=v.length;
-  document.getElementById('a-p').textContent=p.length;
-  document.getElementById('a-d').textContent=p.length;
-  document.getElementById('a-c').textContent=c.length;
-  document.getElementById('acc-v').innerHTML=v.length===0?`<div class="empty">None pending verification.</div>`
-    :v.map(r=>rCard(r,`<button class="btn btn-xs" onclick="showDetail('${r.id}')">Audit</button>
-      <button class="btn btn-xs btn-success" onclick="adv('${r.id}','md_pending','Accountant verified','accountant','acc_actioned_at')">Verify &amp; send to MD</button>
-      <button class="btn btn-xs btn-danger" onclick="adv('${r.id}','mgr_pending','Accountant reverted','accountant','acc_actioned_at')">Revert</button>`)).join('');
-  document.getElementById('acc-p').innerHTML=p.length===0?`<div class="empty">None awaiting payment.</div>`
-    :p.map(r=>{const tl=tLeft(r.md_actioned_at||r.submitted_at,12);return`<div class="ri">
-      <div class="rav ${avc(r.staff_name)}">${ini(r.staff_name)}</div>
-      <div class="rb"><div class="rt">${r.purpose}</div><div class="rm">${r.department} · ${r.request_no}</div>
-        <div class="timer ${tl.c}">${tl.t} · then 6h to document</div>
-        <div class="ract"><button class="btn btn-xs btn-success" onclick="closeReq('${r.id}')">Mark paid &amp; close</button></div>
-      </div><div class="rr"><div class="ra-amt">${fmt(r.amount)}</div></div>
-    </div>`;}).join('');
-}
-
-// ── RENDER: MD ────────────────────────────────────────────────────────────
-function renderMD() {
-  const p=reqs.filter(r=>r.status==='md_pending'), a=reqs.filter(r=>['payment_pending','documented','closed'].includes(r.status));
-  document.getElementById('md-p').textContent=p.length;
-  document.getElementById('md-a').textContent=a.length;
-  document.getElementById('md-t').textContent=fmt(a.reduce((x,r)=>x+Number(r.amount),0));
-  const ot=reqs.filter(r=>r.md_actioned_at&&r.acc_actioned_at&&(new Date(r.md_actioned_at)-new Date(r.acc_actioned_at))<86400000).length;
-  const tot=reqs.filter(r=>r.md_actioned_at).length;
-  document.getElementById('md-c').textContent=tot>0?Math.round(ot/tot*100)+'%':'—';
-  document.getElementById('md-list').innerHTML=p.length===0?`<div class="empty">No requests awaiting your approval.</div>`
-    :p.map(r=>rCard(r,`<button class="btn btn-xs" onclick="showDetail('${r.id}')">Full detail</button>
-      <button class="btn btn-xs btn-success" onclick="adv('${r.id}','payment_pending','MD approved','md','md_actioned_at')">Approve</button>
-      <button class="btn btn-xs btn-danger" onclick="adv('${r.id}','mgr_pending','MD reverted','md','md_actioned_at')">Revert</button>`)).join('');
-}
-
-// ── RENDER: TRACKER ───────────────────────────────────────────────────────
-function renderTracker() {
-  document.getElementById('trk-list').innerHTML=reqs.length===0?`<div class="empty">No requests found.</div>`
-    :reqs.map(r=>`<div style="padding:12px 0;border-bottom:1px solid var(--border)">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-        <div><span style="font-size:13px;font-weight:600">${r.request_no} — ${r.purpose}</span>
-          <span style="font-size:11px;color:var(--text-muted);margin-left:8px">${r.department}</span></div>
-        <div style="display:flex;align-items:center;gap:6px">
-          <span style="font-size:13px;font-weight:700;color:var(--blue)">${fmt(r.amount)}</span>
-          ${sPill(r.status)}
-          <button class="btn btn-xs" onclick="showDetail('${r.id}')">Audit</button>
-        </div>
-      </div>
-      <div class="step-flow">${stepF(r)}</div>
-    </div>`).join('');
-}
-
-// ── RENDER: COMPLIANCE ────────────────────────────────────────────────────
-function renderCompliance() {
-  const stages=[
-    {nm:'Manager review',       lim:24, f:'submitted_at',    t:'mgr_actioned_at'},
-    {nm:'Accountant verification',lim:24,f:'mgr_actioned_at',t:'acc_actioned_at'},
-    {nm:'MD approval',          lim:24, f:'acc_actioned_at', t:'md_actioned_at'},
-    {nm:'Payment initiation',   lim:12, f:'md_actioned_at',  t:'payment_at'},
-    {nm:'Documentation',        lim:6,  f:'payment_at',      t:'documented_at'},
-  ];
-  const bars=stages.map(s=>{
-    const rel=reqs.filter(r=>r[s.f]&&r[s.t]);
-    const ot=rel.filter(r=>(new Date(r[s.t])-new Date(r[s.f]))/3600000<=s.lim).length;
-    const pct=rel.length>0?Math.round(ot/rel.length*100):null;
-    const col=pct===null?'#ccc':pct>=85?'var(--green)':pct>=70?'var(--orange)':'var(--red)';
-    return`<div style="margin-bottom:14px">
-      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:13px;font-weight:600">${s.nm}</span>
-        <span style="font-size:11px;color:var(--text-muted)">Limit: ${s.lim}h · ${rel.length>0?pct+'% on-time':'No data yet'}</span>
-      </div>
-      <div class="cbar"><div class="cfill" style="width:${pct||0}%;background:${col}"></div></div>
-    </div>`;
-  }).join('');
-  document.getElementById('comp-content').innerHTML=`
-    <div class="card"><div class="ch"><span class="ct">On-time rate by stage</span></div>${bars}</div>
-    <div class="card"><div class="ch"><span class="ct">SOP rules</span></div>
-      <div class="alert al-warn" style="margin-bottom:8px"><strong>Rule 7:</strong> Delays &gt;2×/week or &gt;4×/month trigger a formal query.</div>
-      <div class="alert al-info" style="margin-bottom:8px"><strong>Rule 8:</strong> All delays must be communicated proactively — MD in copy — with a revised ETA.</div>
-      <div class="alert al-ok"><strong>Rule 6:</strong> No new requests accepted until previous funds are fully retired and documented.</div>
-    </div>`;
-}
-
-// ── RENDER: ADMIN ─────────────────────────────────────────────────────────
-async function renderAdmin() {
-  // Fetch all profiles via anon key (admin reads all via RLS policy)
-  const users = await get('staff_profiles', 'select=*&order=created_at.asc');
-  const invites = await get('staff_invitations', 'select=*&order=created_at.desc&limit=20');
-  const audits = await get('request_audit', 'select=*&order=created_at.desc&limit=15');
-
-  // Stats strip
-  const roleCounts={staff:0,manager:0,accountant:0,md:0,admin:0};
-  users.forEach(u=>{ if(roleCounts[u.role]!==undefined) roleCounts[u.role]++; else roleCounts.staff++; });
-  document.getElementById('admin-stats').innerHTML = [
-    {ico:'👥', val:users.length, lbl:'Total users'},
-    {ico:'📋', val:roleCounts.staff, lbl:'Staff'},
-    {ico:'👤', val:roleCounts.manager, lbl:'Managers'},
-    {ico:'🧾', val:roleCounts.accountant, lbl:'Accountants'},
-    {ico:'✅', val:roleCounts.md, lbl:'MD'},
-  ].map(s=>`<div class="stat-chip">
-    <span class="stat-chip-icon">${s.ico}</span>
-    <div><div class="stat-chip-val">${s.val}</div><div class="stat-chip-lbl">${s.lbl}</div></div>
-  </div>`).join('');
-
-  // User rows
-  document.getElementById('admin-users').innerHTML = users.length===0
-    ? `<div class="empty">No users found.</div>`
-    : users.map(u => {
-        const tagCls = `tag-${u.role}`;
-        const isMe = u.id === prof?.id;
-        return `<div class="admin-user-row">
-          <div class="admin-av ${avc(u.full_name||'?')}">${ini(u.full_name||'?')}</div>
-          <div class="admin-info">
-            <div class="admin-name">${u.full_name || '—'} ${isMe?'<span style="font-size:10px;color:var(--text-faint)">(you)</span>':''}</div>
-            <div class="admin-email">${u.department||'No department'}</div>
-            <div class="admin-meta">Joined ${ago(u.created_at)} · ${u.is_active?'Active':'Inactive'}</div>
-          </div>
-          <div class="admin-right">
-            <span class="tag ${tagCls}">${u.role}</span>
-            ${!isMe ? `
-            <select class="role-select" onchange="changeRole('${u.id}', this.value)" title="Change role">
-              ${ROLES.map(r=>`<option${r===u.role?' selected':''}>${r}</option>`).join('')}
-            </select>
-            <select class="role-select" onchange="changeDept('${u.id}', this.value)" title="Change department" style="max-width:120px">
-              <option value="">— dept —</option>
-              ${DEPTS.map(d=>`<option${d===u.department?' selected':''}>${d}</option>`).join('')}
-            </select>
-            <button class="btn btn-xs ${u.is_active?'btn-danger':'btn-success'}" onclick="toggleActive('${u.id}',${u.is_active})">
-              ${u.is_active?'Deactivate':'Activate'}
-            </button>
-            <button class="btn btn-xs btn-warn" onclick="showSetPasswordModal('${u.id}','${(u.full_name||'User').replace(/'/g,"\\'")}')">
-              Set password
-            </button>` : ''}
-          </div>
-        </div>`;
-      }).join('');
-
-  // Invitations
-  document.getElementById('admin-invites').innerHTML = invites.length===0
-    ? `<div class="empty">No pending invitations.</div>`
-    : invites.map(inv=>`<div class="admin-user-row">
-        <div class="admin-av ${avc(inv.full_name)}">${ini(inv.full_name)}</div>
-        <div class="admin-info">
-          <div class="admin-name">${inv.full_name}</div>
-          <div class="admin-email">${inv.email}</div>
-          <div class="admin-meta">${inv.department||'No dept'} · Invited ${ago(inv.created_at)}</div>
-        </div>
-        <div class="admin-right">
-          <span class="tag tag-${inv.role}">${inv.role}</span>
-          ${inv.accepted_at
-            ? `<span style="font-size:11px;color:var(--green);font-weight:600">✓ Accepted</span>`
-            : `<button class="btn btn-xs btn-danger" onclick="cancelInvite('${inv.id}')">Cancel</button>`}
-        </div>
-      </div>`).join('');
-
-  // Activity log
-  document.getElementById('admin-activity').innerHTML = audits.length===0
-    ? `<div class="empty">No recent activity.</div>`
-    : audits.map(a=>`<div style="display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px">
-        <div style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:4px"></div>
-        <div style="flex:1">
-          <span style="font-weight:600">${a.actor_name}</span> — ${a.action}
-          <div style="font-size:10px;color:var(--text-faint);margin-top:1px">${new Date(a.created_at).toLocaleString()}${a.notes?` · ${a.notes}`:''}</div>
-        </div>
-      </div>`).join('');
-}
-
-// ── ADMIN ACTIONS ─────────────────────────────────────────────────────────
-async function changeRole(uid, role) {
-  await patch('staff_profiles', uid, {role});
-  toast(`Role updated to ${role} ✓`);
-  goPage('admin');
-}
-async function changeDept(uid, dept) {
-  if(!dept) return;
-  await patch('staff_profiles', uid, {department: dept});
-  toast(`Department updated ✓`);
-}
-async function toggleActive(uid, current) {
-  await patch('staff_profiles', uid, {is_active: !current});
-  toast(`Account ${current?'deactivated':'activated'} ✓`);
-  goPage('admin');
-}
-async function cancelInvite(id) {
-  await del('staff_invitations', id);
-  toast('Invitation cancelled ✓');
-  goPage('admin');
-}
-
-function showSetPasswordModal(uid, name) {
-  document.getElementById('modal-area').innerHTML=`
-    <div class="modal-bg" onclick="closeMod(event)">
-      <div class="modal" onclick="event.stopPropagation()">
-        <div class="modal-title">Set password — ${name}</div>
-        <div class="modal-sub">Enter a new password for this user. They can use it to sign in immediately — no email required.</div>
-        <div class="f"><label>New password</label>
-          <input type="password" id="sp-pw" placeholder="Minimum 8 characters" autocomplete="new-password"></div>
-        <div class="f"><label>Confirm password</label>
-          <input type="password" id="sp-pw2" placeholder="Repeat password"></div>
-        <div class="err-box" id="sp-err" style="display:none"></div>
-        <div class="modal-footer">
-          <button class="btn btn-sm" onclick="closeMod()">Cancel</button>
-          <button class="btn btn-sm btn-primary" onclick="setPassword('${uid}')">Set password</button>
-        </div>
-      </div>
-    </div>`;
-}
-
-async function setPassword(uid) {
-  const pw  = document.getElementById('sp-pw').value;
-  const pw2 = document.getElementById('sp-pw2').value;
-  const err = document.getElementById('sp-err');
-  err.style.display='none';
-  if (pw.length < 8) { err.textContent='Password must be at least 8 characters.'; err.style.display='block'; return; }
-  if (pw !== pw2)    { err.textContent='Passwords do not match.'; err.style.display='block'; return; }
-
-  const token = demoMode ? KEY : (sess?.access_token || KEY);
   try {
-    const r = await fetch(`${SB}/functions/v1/admin-set-password`, {
-      method: 'POST',
-      headers: { 'Content-Type':'application/json', 'Authorization':'Bearer '+token, 'apikey':KEY },
-      body: JSON.stringify({ user_id: uid, new_password: pw })
+    var r=await fetch(SB+'/rest/v1/staff_profiles?id=eq.'+uid+'&select=*',{
+      headers:{'apikey':KEY,'Authorization':'Bearer '+token,'Accept':'application/json'}
     });
-    const d = await r.json();
-    if (d.error) { err.textContent = d.error; err.style.display='block'; return; }
-    closeMod();
-    toast('Password updated successfully ✓');
-  } catch(e) {
-    err.textContent = 'Network error — please try again.'; err.style.display='block';
+    var d=await r.json();
+    if (Array.isArray(d)&&d.length>0) {
+      prof=d[0]; prof.email=sess&&sess.user?sess.user.email:'';
+    } else {
+      // Retry once — JWT may not have propagated to RLS yet
+      await new Promise(function(res){setTimeout(res,1000);});
+      var r2=await fetch(SB+'/rest/v1/staff_profiles?id=eq.'+uid+'&select=*',{
+        headers:{'apikey':KEY,'Authorization':'Bearer '+token,'Accept':'application/json'}
+      });
+      var d2=await r2.json();
+      if (Array.isArray(d2)&&d2.length>0) {
+        prof=d2[0]; prof.email=sess&&sess.user?sess.user.email:'';
+      } else {
+        prof={id:uid,role:'staff',full_name:sess&&sess.user?sess.user.email:'User',email:sess&&sess.user?sess.user.email:''};
+        toast('Warning: could not load your profile. Contact your admin.');
+      }
+    }
+  } catch(e){
+    prof={id:uid,role:'staff',full_name:'User',email:''};
   }
 }
 
-function showInviteModal() {
-  document.getElementById('modal-area').innerHTML=`
-    <div class="modal-bg" onclick="closeMod(event)">
-      <div class="modal" onclick="event.stopPropagation()">
-        <div class="modal-title">Invite a new user</div>
-        <div class="modal-sub">Record an invitation. Share the registration link with the staff member separately.</div>
-        <div class="f"><label>Full name</label><input id="inv-nm" placeholder="e.g. Ngozi Amos"></div>
-        <div class="f"><label>Email address</label><input type="email" id="inv-em" placeholder="ngozi@hopestonehospital.com"></div>
-        <div class="two-col">
-          <div class="f"><label>Role</label>
-            <select id="inv-rl">${ROLES.map(r=>`<option value="${r}">${cap(r)}</option>`).join('')}</select></div>
-          <div class="f"><label>Department</label>
-            <select id="inv-dp"><option value="">— select —</option>${DEPTS.map(d=>`<option>${d}</option>`).join('')}</select></div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-sm" onclick="closeMod()">Cancel</button>
-          <button class="btn btn-sm btn-primary" onclick="sendInvite()">Record invitation</button>
-        </div>
-      </div>
-    </div>`;
+async function doSignup() {
+  var nm=document.getElementById('s-nm').value.trim(), em=document.getElementById('s-em').value.trim();
+  var dp=document.getElementById('s-dp').value, pw=document.getElementById('s-pw').value;
+  var btn=document.getElementById('s-btn');
+  setErr('se','');
+  if(!nm||!em||!pw){setErr('se','Please fill in all fields.');return;}
+  if(pw.length<8){setErr('se','Password must be at least 8 characters.');return;}
+  btn.disabled=true; btn.textContent='Creating...';
+  try {
+    var r=await fetch(SB+'/auth/v1/signup',{method:'POST',headers:{'Content-Type':'application/json','apikey':KEY},
+      body:JSON.stringify({email:em,password:pw,data:{full_name:nm,department:dp,role:'staff'}})});
+    var d=await r.json();
+    if(d.error||d.error_description){setErr('se',d.error_description||d.error);btn.disabled=false;btn.textContent='Create account';return;}
+    document.getElementById('confirm-msg').textContent='Confirmation link sent to '+em+'. Click it to activate, then sign in.';
+    showScreen('sc-confirm');
+  } catch(e){setErr('se','Network error.');}
+  btn.disabled=false; btn.textContent='Create account';
 }
 
-async function sendInvite() {
-  const nm=document.getElementById('inv-nm').value.trim(), em=document.getElementById('inv-em').value.trim(),
-        rl=document.getElementById('inv-rl').value, dp=document.getElementById('inv-dp').value;
+async function doLogout() {
+  if(!demoMode&&sess&&sess.access_token) await fetch(SB+'/auth/v1/logout',{method:'POST',headers:{'apikey':KEY,'Authorization':'Bearer '+sess.access_token}});
+  sess=null; prof=null; demoMode=false; showScreen('sc-login');
+}
+
+// ── APP ───────────────────────────────────────────────────────────────────
+function enterApp() {
+  showScreen('sc-app');
+  var nm=prof.full_name||'User';
+  document.getElementById('top-av').textContent=ini(nm);
+  document.getElementById('top-av').className='uav '+avc(nm);
+  document.getElementById('top-nm').textContent=nm;
+  document.getElementById('top-rl').textContent=cap(prof.role||'staff');
+  var dd=document.getElementById('f-dept');
+  if(dd) dd.innerHTML=DEPTS.map(function(d){return '<option'+(prof.department===d?' selected':'')+'>'+d+'</option>';}).join('');
+  var defPages={staff:'staff',manager:'manager',accountant:'accountant',md:'md',admin:'admin'};
+  goPage(defPages[prof.role]||'staff');
+}
+
+function buildSidebar() {
+  var role=prof?prof.role:'staff', items=NAV_MAP[role]||NAV_MAP.staff;
+  var bc={
+    manager:reqs.filter(function(r){return r.status==='mgr_pending';}).length,
+    accountant:reqs.filter(function(r){return r.status==='acc_pending';}).length,
+    md:reqs.filter(function(r){return r.status==='md_pending';}).length
+  };
+  var html='<div class="nav-sec">Navigation</div>';
+  for(var i=0;i<items.length;i++){
+    var it=items[i], badge=bc[it.id]>0?'<span class="nav-badge">'+bc[it.id]+'</span>':'';
+    html+='<div class="nav-item'+(curPage===it.id?' active':'')+'" onclick="goPage(\''+it.id+'\')">'
+         +'<span style="font-size:15px">'+it.ico+'</span><span>'+it.lbl+'</span>'+badge+'</div>';
+  }
+  document.getElementById('sidebar').innerHTML=html;
+}
+
+async function goPage(id) {
+  curPage=id;
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  var pg=document.getElementById('page-'+id); if(pg) pg.classList.add('active');
+  reqs=await sbGet('fund_requests','order=submitted_at.desc');
+  buildSidebar();
+  if(id==='staff') renderStaff();
+  else if(id==='manager') renderManager();
+  else if(id==='accountant') renderAccountant();
+  else if(id==='md') renderMD();
+  else if(id==='tracker') renderTracker();
+  else if(id==='compliance') renderCompliance();
+  else if(id==='admin') renderAdmin();
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────────────
+var AVC=['av-b','av-a','av-t','av-p','av-r'];
+function avc(n){return AVC[(n||'?').charCodeAt(0)%5];}
+function ini(n){return(n||'?').split(' ').map(function(w){return w[0];}).join('').slice(0,2).toUpperCase();}
+function fmt(n){return '₦'+Number(n).toLocaleString();}
+function cap(s){return s?s[0].toUpperCase()+s.slice(1):'';}
+function ago(ts){var h=Math.floor((Date.now()-new Date(ts))/3600000);return h<1?'<1h ago':h+'h ago';}
+function tLeft(ts,lh){var h=(Date.now()-new Date(ts))/3600000,l=lh-h;if(l<0)return{t:'⚠ '+Math.abs(Math.ceil(l))+'h overdue',c:'over'};if(l<4)return{t:'⏱ '+Math.ceil(l)+'h left',c:'warn'};return{t:'⏱ '+Math.ceil(l)+'h left',c:'ok'};}
+function sPill(s){var m={mgr_pending:['Mgr review','p-mgr'],acc_pending:['Acct verify','p-acc'],md_pending:['MD review','p-md'],payment_pending:['Payment','p-pay'],documented:['Closed','p-done'],closed:['Closed','p-done'],reverted:['Reverted','p-rev']};var x=m[s]||[s,'p-mgr'];return '<span class="pill '+x[1]+'">'+x[0]+'</span>';}
+function pPill(p){var m={emergency:'p-eme',weekly:'p-wkl',routine:'p-rtn'};return '<span class="pill '+(m[p]||'p-rtn')+'">'+p+'</span>';}
+function stepF(r){
+  var steps=[['Sub','mgr_pending'],['Mgr','acc_pending'],['Acct','md_pending'],['MD','payment_pending'],['Pay','documented'],['Done','closed']];
+  var ord=['mgr_pending','acc_pending','md_pending','payment_pending','documented','closed','reverted'];
+  var cur=ord.indexOf(r.status),html='';
+  for(var i=0;i<steps.length;i++){var c=i<cur?'s-done':i===cur?'s-act':'s-wait';html+='<div class="sn"><div class="sc '+c+'">'+(i<cur?'✓':i+1)+'</div><div class="sl">'+steps[i][0]+'</div></div>'+(i<steps.length-1?'<div class="sa"></div>':'');}
+  return html;
+}
+function rCard(r,acts){
+  var tl=tLeft(r.submitted_at,24);
+  return '<div class="ri"><div class="rav '+avc(r.staff_name)+'">'+ini(r.staff_name)+'</div>'
+    +'<div class="rb"><div class="rt">'+r.staff_name+' — '+r.purpose+'</div>'
+    +'<div class="rm">'+r.department+' · '+r.request_no+' · '+pPill(r.priority)+' · '+ago(r.submitted_at)+'</div>'
+    +(r.notes?'<div class="rn">'+r.notes+'</div>':'')
+    +'<div class="timer '+tl.c+'">'+tl.t+'</div>'
+    +'<div class="ract">'+acts+'</div></div>'
+    +'<div class="rr"><div class="ra-amt">'+fmt(r.amount)+'</div>'+sPill(r.status)+'</div></div>';
+}
+
+// ── RENDER PAGES ──────────────────────────────────────────────────────────
+function renderStaff(){
+  var open=reqs.filter(function(r){return['mgr_pending','acc_pending','md_pending','payment_pending'].indexOf(r.status)>-1;});
+  document.getElementById('staff-block').innerHTML=open.length>0?'<div class="alert al-warn">You have <strong>'+open.length+'</strong> open request(s). New requests are blocked until previous funds are fully retired.</div>':'';
+  document.getElementById('staff-list').innerHTML=reqs.length===0?'<div class="empty">No requests yet.</div>'
+    :reqs.map(function(r){return'<div class="ri"><div class="rav '+avc(r.staff_name)+'">'+ini(r.staff_name)+'</div><div class="rb"><div class="rt">'+r.purpose+'</div><div class="rm">'+r.department+' · '+r.request_no+' · '+ago(r.submitted_at)+'</div></div><div class="rr"><div class="ra-amt">'+fmt(r.amount)+'</div>'+sPill(r.status)+'</div></div>';}).join('');
+}
+
+function renderManager(){
+  var pend=reqs.filter(function(r){return r.status==='mgr_pending';});
+  document.getElementById('m-p').textContent=pend.length;
+  document.getElementById('m-f').textContent=reqs.filter(function(r){return['acc_pending','md_pending','payment_pending','documented','closed'].indexOf(r.status)>-1;}).length;
+  document.getElementById('m-o').textContent=pend.filter(function(r){return Date.now()-new Date(r.submitted_at)>86400000;}).length;
+  document.getElementById('m-v').textContent='₦'+pend.reduce(function(a,r){return a+Number(r.amount);},0).toLocaleString();
+  document.getElementById('mgr-list').innerHTML=pend.length===0?'<div class="empty">No requests pending review.</div>'
+    :pend.map(function(r){return rCard(r,'<button class="btn btn-xs" onclick="showDetail(\''+r.id+'\')">Review</button><button class="btn btn-xs btn-success" onclick="adv(\''+r.id+'\',\'acc_pending\',\'Manager approved\',\'manager\',\'mgr_actioned_at\')">Approve &amp; forward</button><button class="btn btn-xs btn-danger" onclick="adv(\''+r.id+'\',\'reverted\',\'Manager reverted\',\'manager\',\'mgr_actioned_at\')">Revert</button>');}).join('');
+}
+
+function renderAccountant(){
+  var v=reqs.filter(function(r){return r.status==='acc_pending';}),p=reqs.filter(function(r){return r.status==='payment_pending';}),c=reqs.filter(function(r){return r.status==='documented'||r.status==='closed';});
+  document.getElementById('a-v').textContent=v.length; document.getElementById('a-p').textContent=p.length; document.getElementById('a-d').textContent=p.length; document.getElementById('a-c').textContent=c.length;
+  document.getElementById('acc-v').innerHTML=v.length===0?'<div class="empty">None pending verification.</div>'
+    :v.map(function(r){return rCard(r,'<button class="btn btn-xs" onclick="showDetail(\''+r.id+'\')">Audit</button><button class="btn btn-xs btn-success" onclick="adv(\''+r.id+'\',\'md_pending\',\'Accountant verified\',\'accountant\',\'acc_actioned_at\')">Verify &amp; send to MD</button><button class="btn btn-xs btn-danger" onclick="adv(\''+r.id+'\',\'mgr_pending\',\'Accountant reverted\',\'accountant\',\'acc_actioned_at\')">Revert</button>');}).join('');
+  document.getElementById('acc-p').innerHTML=p.length===0?'<div class="empty">None awaiting payment.</div>'
+    :p.map(function(r){var tl=tLeft(r.md_actioned_at||r.submitted_at,12);return'<div class="ri"><div class="rav '+avc(r.staff_name)+'">'+ini(r.staff_name)+'</div><div class="rb"><div class="rt">'+r.purpose+'</div><div class="rm">'+r.department+' · '+r.request_no+'</div><div class="timer '+tl.c+'">'+tl.t+' · then 6h to document</div><div class="ract"><button class="btn btn-xs btn-success" onclick="closeReq(\''+r.id+'\')">Mark paid &amp; close</button></div></div><div class="rr"><div class="ra-amt">'+fmt(r.amount)+'</div></div></div>';}).join('');
+}
+
+function renderMD(){
+  var p=reqs.filter(function(r){return r.status==='md_pending';}),a=reqs.filter(function(r){return['payment_pending','documented','closed'].indexOf(r.status)>-1;});
+  document.getElementById('md-p').textContent=p.length; document.getElementById('md-a').textContent=a.length; document.getElementById('md-t').textContent=fmt(a.reduce(function(x,r){return x+Number(r.amount);},0));
+  var ot=reqs.filter(function(r){return r.md_actioned_at&&r.acc_actioned_at&&(new Date(r.md_actioned_at)-new Date(r.acc_actioned_at))<86400000;}).length,tot=reqs.filter(function(r){return r.md_actioned_at;}).length;
+  document.getElementById('md-c').textContent=tot>0?Math.round(ot/tot*100)+'%':'—';
+  document.getElementById('md-list').innerHTML=p.length===0?'<div class="empty">No requests awaiting your approval.</div>'
+    :p.map(function(r){return rCard(r,'<button class="btn btn-xs" onclick="showDetail(\''+r.id+'\')">Full detail</button><button class="btn btn-xs btn-success" onclick="adv(\''+r.id+'\',\'payment_pending\',\'MD approved\',\'md\',\'md_actioned_at\')">Approve</button><button class="btn btn-xs btn-danger" onclick="adv(\''+r.id+'\',\'mgr_pending\',\'MD reverted\',\'md\',\'md_actioned_at\')">Revert</button>');}).join('');
+}
+
+function renderTracker(){
+  document.getElementById('trk-list').innerHTML=reqs.length===0?'<div class="empty">No requests found.</div>'
+    :reqs.map(function(r){return'<div style="padding:12px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><div><span style="font-size:13px;font-weight:600">'+r.request_no+' — '+r.purpose+'</span><span style="font-size:11px;color:var(--text-muted);margin-left:8px">'+r.department+'</span></div><div style="display:flex;align-items:center;gap:6px"><span style="font-size:13px;font-weight:700;color:var(--blue)">'+fmt(r.amount)+'</span>'+sPill(r.status)+'<button class="btn btn-xs" onclick="showDetail(\''+r.id+'\')">Audit</button></div></div><div class="step-flow">'+stepF(r)+'</div></div>';}).join('');
+}
+
+function renderCompliance(){
+  var stages=[{nm:'Manager review',lim:24,f:'submitted_at',t:'mgr_actioned_at'},{nm:'Accountant verification',lim:24,f:'mgr_actioned_at',t:'acc_actioned_at'},{nm:'MD approval',lim:24,f:'acc_actioned_at',t:'md_actioned_at'},{nm:'Payment initiation',lim:12,f:'md_actioned_at',t:'payment_at'},{nm:'Documentation',lim:6,f:'payment_at',t:'documented_at'}];
+  var bars=stages.map(function(s){var rel=reqs.filter(function(r){return r[s.f]&&r[s.t];});var ot=rel.filter(function(r){return(new Date(r[s.t])-new Date(r[s.f]))/3600000<=s.lim;}).length;var pct=rel.length>0?Math.round(ot/rel.length*100):null;var col=pct===null?'#ccc':pct>=85?'var(--green)':pct>=70?'var(--orange)':'var(--red)';return'<div style="margin-bottom:14px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:13px;font-weight:600">'+s.nm+'</span><span style="font-size:11px;color:var(--text-muted)">Limit: '+s.lim+'h · '+(rel.length>0?pct+'% on-time':'No data yet')+'</span></div><div class="cbar"><div class="cfill" style="width:'+(pct||0)+'%;background:'+col+'"></div></div></div>';}).join('');
+  document.getElementById('comp-content').innerHTML='<div class="card"><div class="ch"><span class="ct">On-time rate by stage</span></div>'+bars+'</div><div class="card"><div class="ch"><span class="ct">SOP rules</span></div><div class="alert al-warn" style="margin-bottom:8px"><strong>Rule 7:</strong> Delays &gt;2×/week or &gt;4×/month trigger a formal query.</div><div class="alert al-info" style="margin-bottom:8px"><strong>Rule 8:</strong> All delays must be communicated proactively — MD in copy — with a revised ETA.</div><div class="alert al-ok"><strong>Rule 6:</strong> No new requests accepted until previous funds are fully retired and documented.</div></div>';
+}
+
+async function renderAdmin(){
+  var users=await sbGet('staff_profiles','select=*&order=created_at.asc');
+  var invites=await sbGet('staff_invitations','select=*&order=created_at.desc&limit=20');
+  var audits=await sbGet('request_audit','select=*&order=created_at.desc&limit=15');
+  var rc={staff:0,manager:0,accountant:0,md:0,admin:0};
+  users.forEach(function(u){if(rc[u.role]!==undefined)rc[u.role]++;else rc.staff++;});
+  document.getElementById('admin-stats').innerHTML=[{ico:'👥',val:users.length,lbl:'Total users'},{ico:'📋',val:rc.staff,lbl:'Staff'},{ico:'👤',val:rc.manager,lbl:'Managers'},{ico:'🧾',val:rc.accountant,lbl:'Accountants'},{ico:'✅',val:rc.md,lbl:'MD'}].map(function(s){return'<div class="stat-chip"><span style="font-size:18px">'+s.ico+'</span><div><div class="stat-val">'+s.val+'</div><div class="stat-lbl">'+s.lbl+'</div></div></div>';}).join('');
+
+  document.getElementById('admin-users').innerHTML=users.length===0?'<div class="empty">No users found.</div>'
+    :users.map(function(u){
+      var me=prof&&u.id===prof.id, meTag=me?' <span style="font-size:10px;color:var(--text-faint)">(you)</span>':'';
+      var acts='';
+      if(!me){
+        acts+='<select class="role-sel" onchange="changeRole(\''+u.id+'\',this.value)">'+ROLES.map(function(r){return'<option'+(r===u.role?' selected':'')+'>'+r+'</option>';}).join('')+'</select>';
+        acts+='<select class="role-sel" onchange="changeDept(\''+u.id+'\',this.value)" style="max-width:110px"><option value="">— dept —</option>'+DEPTS.map(function(d){return'<option'+(d===u.department?' selected':'')+'>'+d+'</option>';}).join('')+'</select>';
+        acts+='<button class="btn btn-xs '+(u.is_active?'btn-danger':'btn-success')+'" onclick="toggleActive(\''+u.id+'\','+u.is_active+')">'+(u.is_active?'Deactivate':'Activate')+'</button>';
+        acts+='<button class="btn btn-xs btn-warn" onclick="showSetPwModal(\''+u.id+'\',\''+((u.full_name||'User').replace(/\\/g,'\\\\').replace(/'/g,'\\\''))+'\')">Set password</button>';
+      }
+      return'<div class="admin-row"><div class="admin-av '+avc(u.full_name||'?')+'">'+ini(u.full_name||'?')+'</div><div class="admin-info"><div class="admin-name">'+(u.full_name||'—')+meTag+'</div><div class="admin-email">'+(u.department||'No department')+'</div><div class="admin-meta">Joined '+ago(u.created_at)+' · '+(u.is_active?'Active':'Inactive')+'</div></div><div class="admin-actions"><span class="tag tag-'+(u.role||'staff')+'">'+(u.role||'staff')+'</span>'+acts+'</div></div>';
+    }).join('');
+
+  document.getElementById('admin-invites').innerHTML=invites.length===0?'<div class="empty">No pending invitations.</div>'
+    :invites.map(function(inv){var st=inv.accepted_at?'<span style="font-size:11px;color:var(--green);font-weight:600">✓ Accepted</span>':'<button class="btn btn-xs btn-danger" onclick="cancelInvite(\''+inv.id+'\')">Cancel</button>';return'<div class="admin-row"><div class="admin-av '+avc(inv.full_name)+'">'+ini(inv.full_name)+'</div><div class="admin-info"><div class="admin-name">'+inv.full_name+'</div><div class="admin-email">'+inv.email+'</div><div class="admin-meta">'+(inv.department||'No dept')+' · Invited '+ago(inv.created_at)+'</div></div><div class="admin-actions"><span class="tag tag-'+(inv.role||'staff')+'">'+inv.role+'</span>'+st+'</div></div>';}).join('');
+
+  document.getElementById('admin-activity').innerHTML=audits.length===0?'<div class="empty">No recent activity.</div>'
+    :audits.map(function(a){return'<div style="display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px"><div style="width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:4px"></div><div><span style="font-weight:600">'+a.actor_name+'</span> — '+a.action+'<div style="font-size:10px;color:var(--text-faint)">'+new Date(a.created_at).toLocaleString()+(a.notes?' · '+a.notes:'')+'</div></div></div>';}).join('');
+}
+
+// ── ADMIN ACTIONS ─────────────────────────────────────────────────────────
+async function changeRole(uid,role){await sbPatch('staff_profiles',uid,{role:role});toast('Role updated to '+role+' ✓');goPage('admin');}
+async function changeDept(uid,dept){if(!dept)return;await sbPatch('staff_profiles',uid,{department:dept});toast('Department updated ✓');}
+async function toggleActive(uid,current){await sbPatch('staff_profiles',uid,{is_active:!current});toast('Account '+(current?'deactivated':'activated')+' ✓');goPage('admin');}
+async function cancelInvite(id){await sbDel('staff_invitations',id);toast('Invitation cancelled ✓');goPage('admin');}
+
+function showSetPwModal(uid,name){
+  document.getElementById('modal-area').innerHTML='<div class="modal-bg" onclick="closeMod(event)"><div class="modal" onclick="event.stopPropagation()"><div class="modal-title">Set password — '+name+'</div><div class="modal-sub">Enter a new password for this user. They can sign in immediately — no email required.</div><div class="f"><label>New password</label><input type="password" id="sp-pw" placeholder="Minimum 8 characters" autocomplete="new-password"></div><div class="f"><label>Confirm password</label><input type="password" id="sp-pw2" placeholder="Repeat password"></div><div class="err-box" id="sp-err"></div><div class="modal-footer"><button class="btn btn-sm" onclick="closeMod()">Cancel</button><button class="btn btn-sm btn-primary" onclick="setPw(\''+uid+'\')">Set password</button></div></div></div>';
+}
+
+async function setPw(uid){
+  var pw=document.getElementById('sp-pw').value,pw2=document.getElementById('sp-pw2').value,err=document.getElementById('sp-err');
+  err.style.display='none';
+  if(pw.length<8){err.textContent='Password must be at least 8 characters.';err.style.display='block';return;}
+  if(pw!==pw2){err.textContent='Passwords do not match.';err.style.display='block';return;}
+  try{
+    var r=await fetch(SB+'/functions/v1/admin-set-password',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+tok(),'apikey':KEY},body:JSON.stringify({user_id:uid,new_password:pw})});
+    var d=await r.json();
+    if(d.error){err.textContent=d.error;err.style.display='block';return;}
+    closeMod(); toast('Password updated ✓');
+  }catch(e){err.textContent='Network error — please try again.';err.style.display='block';}
+}
+
+function showInviteModal(){
+  document.getElementById('modal-area').innerHTML='<div class="modal-bg" onclick="closeMod(event)"><div class="modal" onclick="event.stopPropagation()"><div class="modal-title">Invite a new user</div><div class="modal-sub">Record an invitation and share the portal URL with the staff member separately.</div><div class="f"><label>Full name</label><input id="inv-nm" placeholder="e.g. Ngozi Amos"></div><div class="f"><label>Email address</label><input type="email" id="inv-em" placeholder="ngozi@hopestonehospital.com"></div><div class="two-col"><div class="f"><label>Role</label><select id="inv-rl">'+ROLES.map(function(r){return'<option value="'+r+'">'+cap(r)+'</option>';}).join('')+'</select></div><div class="f"><label>Department</label><select id="inv-dp"><option value="">— select —</option>'+DEPTS.map(function(d){return'<option>'+d+'</option>';}).join('')+'</select></div></div><div class="modal-footer"><button class="btn btn-sm" onclick="closeMod()">Cancel</button><button class="btn btn-sm btn-primary" onclick="sendInvite()">Record invitation</button></div></div></div>';
+}
+
+async function sendInvite(){
+  var nm=document.getElementById('inv-nm').value.trim(),em=document.getElementById('inv-em').value.trim(),rl=document.getElementById('inv-rl').value,dp=document.getElementById('inv-dp').value;
   if(!nm||!em){toast('Please fill in name and email.');return;}
-  await post('staff_invitations',{full_name:nm, email:em, role:rl, department:dp||null, invited_by: prof?.id&&!prof.id.startsWith('d-')?prof.id:null});
+  var invBy=prof&&prof.id&&prof.id.indexOf('d-')!==0?prof.id:null;
+  await sbPost('staff_invitations',{full_name:nm,email:em,role:rl,department:dp||null,invited_by:invBy});
   closeMod(); toast('Invitation recorded ✓'); goPage('admin');
 }
 
 // ── REQUEST ACTIONS ───────────────────────────────────────────────────────
-async function adv(id, newStatus, auditAction, actorRole, tsField) {
-  const now=new Date().toISOString(), body={status:newStatus};
-  if(tsField) body[tsField]=now;
-  const nm={manager:'Dr. Eze',accountant:'Accountant',md:'Managing Director',system:'System'}[actorRole]||actorRole;
-  await Promise.all([patch('fund_requests',id,body), post('request_audit',{request_id:id,action:auditAction,actor_name:nm,actor_role:actorRole})]);
+async function adv(id,newStatus,auditAction,actorRole,tsField){
+  var now=new Date().toISOString(),body={status:newStatus};
+  if(tsField)body[tsField]=now;
+  var nm={manager:'Dr. Eze',accountant:'Accountant',md:'Managing Director',system:'System'}[actorRole]||actorRole;
+  await Promise.all([sbPatch('fund_requests',id,body),sbPost('request_audit',{request_id:id,action:auditAction,actor_name:nm,actor_role:actorRole})]);
   toast('Saved ✓'); goPage(curPage);
 }
-async function closeReq(id) {
-  const now=new Date().toISOString();
-  await patch('fund_requests',id,{status:'documented',payment_at:now,documented_at:now});
-  await post('request_audit',{request_id:id,action:'Payment processed & documented',actor_name:'Accountant',actor_role:'accountant',notes:'Zoho Books posted, filing complete'});
+async function closeReq(id){
+  var now=new Date().toISOString();
+  await sbPatch('fund_requests',id,{status:'documented',payment_at:now,documented_at:now});
+  await sbPost('request_audit',{request_id:id,action:'Payment processed & documented',actor_name:'Accountant',actor_role:'accountant',notes:'Zoho Books posted, filing complete'});
   toast('Request closed ✓'); goPage(curPage);
 }
-async function submitReq() {
-  const amt=parseFloat(document.getElementById('f-amt').value), pur=document.getElementById('f-pur').value.trim();
+async function submitReq(){
+  var amt=parseFloat(document.getElementById('f-amt').value),pur=document.getElementById('f-pur').value.trim();
   if(!amt||amt<=0||!pur){toast('Please fill in amount and purpose.');return;}
-  const btn=document.getElementById('sub-btn'); btn.disabled=true; btn.textContent='Submitting…';
-  const nm=prof?.full_name||prof?.name||'Staff';
-  const body={staff_name:nm, department:document.getElementById('f-dept').value, amount:amt, purpose:pur, priority:document.getElementById('f-pri').value, notes:document.getElementById('f-nts').value, status:'mgr_pending', submitted_by:prof?.id&&!prof.id.startsWith('d-')?prof.id:null};
-  const res=await post('fund_requests',body);
-  const nr=Array.isArray(res)?res[0]:res;
-  if(nr?.id) await post('request_audit',{request_id:nr.id,action:'Request submitted',actor_name:nm,actor_role:'staff'});
-  ['f-amt','f-pur','f-nts'].forEach(x=>document.getElementById(x).value='');
-  btn.disabled=false; btn.textContent='Submit to manager';
-  toast('Submitted to manager ✓'); goPage('staff');
+  var btn=document.getElementById('sub-btn'); btn.disabled=true; btn.textContent='Submitting...';
+  var nm=prof?prof.full_name||'Staff':'Staff';
+  var by=prof&&prof.id&&prof.id.indexOf('d-')!==0?prof.id:null;
+  var body={staff_name:nm,department:document.getElementById('f-dept').value,amount:amt,purpose:pur,priority:document.getElementById('f-pri').value,notes:document.getElementById('f-nts').value,status:'mgr_pending',submitted_by:by};
+  var res=await sbPost('fund_requests',body),nr=Array.isArray(res)?res[0]:res;
+  if(nr&&nr.id) await sbPost('request_audit',{request_id:nr.id,action:'Request submitted',actor_name:nm,actor_role:'staff'});
+  ['f-amt','f-pur','f-nts'].forEach(function(x){document.getElementById(x).value='';});
+  btn.disabled=false; btn.textContent='Submit to manager'; toast('Submitted to manager ✓'); goPage('staff');
+}
+async function showDetail(id){
+  var r=reqs.filter(function(x){return x.id===id;})[0];
+  var aud=await sbGet('request_audit','request_id=eq.'+id+'&order=created_at.asc');
+  var ah=aud.length===0?'<div class="empty">No audit entries yet.</div>':aud.map(function(a){return'<div class="audit-row"><div class="audit-dot"></div><div style="flex:1"><div>'+a.action+'</div><div style="font-size:10px;color:var(--text-faint)">'+a.actor_name+' ('+a.actor_role+') · '+new Date(a.created_at).toLocaleString()+'</div>'+(a.notes?'<div style="font-size:10px;color:var(--text-faint)">'+a.notes+'</div>':'')+'</div></div>';}).join('');
+  document.getElementById('modal-area').innerHTML='<div class="modal-bg" onclick="closeMod(event)"><div class="modal" onclick="event.stopPropagation()"><div class="modal-title">'+r.request_no+' — '+r.purpose+'</div><div class="modal-sub">'+r.department+' · '+fmt(r.amount)+' · '+r.priority+' · Submitted '+ago(r.submitted_at)+'</div>'+(r.notes?'<div style="font-size:12px;color:var(--text-muted);background:var(--bg);padding:9px;border-radius:var(--radius);margin-bottom:12px">'+r.notes+'</div>':'')+'<div class="step-flow" style="margin-bottom:14px">'+stepF(r)+'</div><div style="font-size:11px;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px">Audit trail</div>'+ah+'<div class="modal-footer"><button class="btn btn-sm" onclick="closeMod()">Close</button></div></div></div>';
 }
 
-async function showDetail(id) {
-  const r=reqs.find(x=>x.id===id);
-  const aud=await get('request_audit',`request_id=eq.${id}&order=created_at.asc`);
-  document.getElementById('modal-area').innerHTML=`
-    <div class="modal-bg" onclick="closeMod(event)">
-      <div class="modal" onclick="event.stopPropagation()">
-        <div class="modal-title">${r.request_no} — ${r.purpose}</div>
-        <div class="modal-sub">${r.department} · ${fmt(r.amount)} · ${r.priority} · Submitted ${ago(r.submitted_at)}</div>
-        ${r.notes?`<div style="font-size:12px;color:var(--text-muted);background:var(--bg);padding:9px;border-radius:var(--radius);margin-bottom:12px">${r.notes}</div>`:''}
-        <div class="step-flow" style="margin-bottom:14px">${stepF(r)}</div>
-        <div style="font-size:11px;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px">Audit trail</div>
-        ${aud.length===0?'<div class="empty">No audit entries yet.</div>':aud.map(a=>`
-          <div class="audit-row"><div class="audit-dot"></div>
-            <div style="flex:1"><div>${a.action}</div>
-              <div style="font-size:10px;color:var(--text-faint)">${a.actor_name} (${a.actor_role}) · ${new Date(a.created_at).toLocaleString()}</div>
-              ${a.notes?`<div style="font-size:10px;color:var(--text-faint)">${a.notes}</div>`:''}
-            </div>
-          </div>`).join('')}
-        <div class="modal-footer"><button class="btn btn-sm" onclick="closeMod()">Close</button></div>
-      </div>
-    </div>`;
-}
-
-// ── UI UTILS ──────────────────────────────────────────────────────────────
-function show(id) {
-  document.querySelectorAll('.auth-wrap,.app').forEach(el=>{el.classList.add('hidden');el.style.display='';});
-  const el=document.getElementById(id);
-  if(el){el.classList.remove('hidden');if(el.classList.contains('auth-wrap'))el.style.display='flex';}
-}
-function setErr(id,msg){const el=document.getElementById(id);if(el){el.textContent=msg;el.style.display=msg?'block':'none';}}
-function fill(email, realPw=false) {
-  document.getElementById('l-em').value=email;
-  document.getElementById('l-pw').value=realPw?'':DPW;
-  if(realPw) document.getElementById('l-pw').placeholder='Enter your real password';
-}
+// ── UTILS ─────────────────────────────────────────────────────────────────
+function setErr(id,msg){var el=document.getElementById(id);if(el){el.textContent=msg;el.style.display=msg?'block':'none';}}
+function fillDemo(email){document.getElementById('l-em').value=email;document.getElementById('l-pw').value=DPW;}
 function closeMod(e){if(!e||e.target.classList.contains('modal-bg'))document.getElementById('modal-area').innerHTML='';}
-let toastT;
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.opacity='1';clearTimeout(toastT);toastT=setTimeout(()=>t.style.opacity='0',2800);}
+var toastT;
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.style.opacity='1';clearTimeout(toastT);toastT=setTimeout(function(){t.style.opacity='0';},2800);}
 </script>
 </body>
 </html>
